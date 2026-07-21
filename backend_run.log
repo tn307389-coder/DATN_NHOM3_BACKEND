@@ -1,0 +1,2511 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< org.example:DATN_NHOM3_BACKEND >-------------------
+[INFO] Building DATN_NHOM3_BACKEND 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.3.5:run (default-cli) > test-compile @ DATN_NHOM3_BACKEND >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ DATN_NHOM3_BACKEND ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ DATN_NHOM3_BACKEND ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ DATN_NHOM3_BACKEND ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ DATN_NHOM3_BACKEND ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 11 source files with javac [debug parameters release 17] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:3.3.5:run (default-cli) < test-compile @ DATN_NHOM3_BACKEND <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.3.5:run (default-cli) @ DATN_NHOM3_BACKEND ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-07-21 15:45:48 [main] INFO  o.e.d.DatnNhom3BackendApplication - Starting DatnNhom3BackendApplication using Java 17.0.19 with PID 25148 (D:\DATN_NHOM3\DATN_NHOM3_BACKEND\target\classes started by n2450 in D:\DATN_NHOM3\DATN_NHOM3_BACKEND)
+2026-07-21 15:45:48 [main] DEBUG o.e.d.DatnNhom3BackendApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-07-21 15:45:48 [main] INFO  o.e.d.DatnNhom3BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-21 15:45:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-21 15:45:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 111 ms. Found 31 JPA repository interfaces.
+2026-07-21 15:45:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-07-21 15:45:50 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-21 15:45:50 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-07-21 15:45:50 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-07-21 15:45:50 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1370 ms
+2026-07-21 15:45:50 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-07-21 15:45:50 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-07-21 15:45:50 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-07-21 15:45:50 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-21 15:45:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - DATN-HikariPool - Starting...
+2026-07-21 15:45:51 [main] INFO  com.zaxxer.hikari.pool.HikariPool - DATN-HikariPool - Added connection ConnectionID:1 ClientConnectionId: 128d890b-98ae-4ff7-95d3-2618d8b8980e
+2026-07-21 15:45:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - DATN-HikariPool - Start completed.
+2026-07-21 15:45:51 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-21 15:45:51 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table bang_diem_thuong_xuyen 
+       drop constraint if exists FK21xdtdiofk5h28ug65dc15m5c
+Hibernate: 
+    alter table bang_diem_thuong_xuyen 
+       drop constraint if exists FK21xdtdiofk5h28ug65dc15m5c
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table bang_diem_thuong_xuyen 
+       drop constraint if exists FKp99nx9y433x9qsbthdbv6p3pd
+Hibernate: 
+    alter table bang_diem_thuong_xuyen 
+       drop constraint if exists FKp99nx9y433x9qsbthdbv6p3pd
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table dang_ky_khoa_hoc 
+       drop constraint if exists FKop2xwof1beurju9y0trda5wuf
+Hibernate: 
+    alter table dang_ky_khoa_hoc 
+       drop constraint if exists FKop2xwof1beurju9y0trda5wuf
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table dang_ky_khoa_hoc 
+       drop constraint if exists FKloxg49jj2m2p3glpx6potlmo9
+Hibernate: 
+    alter table dang_ky_khoa_hoc 
+       drop constraint if exists FKloxg49jj2m2p3glpx6potlmo9
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table diem_danh 
+       drop constraint if exists FK4uskd9caqq4civ76q7jh42j9v
+Hibernate: 
+    alter table diem_danh 
+       drop constraint if exists FK4uskd9caqq4civ76q7jh42j9v
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table diem_danh 
+       drop constraint if exists FKcjva655xntvk16wbayykc20ib
+Hibernate: 
+    alter table diem_danh 
+       drop constraint if exists FKcjva655xntvk16wbayykc20ib
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table ho_so_hoc_vien 
+       drop constraint if exists FKooq262q8s8x3nu7a4bd0qho7n
+Hibernate: 
+    alter table ho_so_hoc_vien 
+       drop constraint if exists FKooq262q8s8x3nu7a4bd0qho7n
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table ket_qua_thi 
+       drop constraint if exists FKkualvxjmh6bmj507nx5oce8uq
+Hibernate: 
+    alter table ket_qua_thi 
+       drop constraint if exists FKkualvxjmh6bmj507nx5oce8uq
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table khoa_hoc 
+       drop constraint if exists FKrqo08wmvt6o213q8yvls6anps
+Hibernate: 
+    alter table khoa_hoc 
+       drop constraint if exists FKrqo08wmvt6o213q8yvls6anps
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       drop constraint if exists FK33nkswenok2guk4sjuedk3s3f
+Hibernate: 
+    alter table lich_hoc 
+       drop constraint if exists FK33nkswenok2guk4sjuedk3s3f
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       drop constraint if exists FKewx85fi5dbjivek35x4o7n55t
+Hibernate: 
+    alter table lich_hoc 
+       drop constraint if exists FKewx85fi5dbjivek35x4o7n55t
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       drop constraint if exists FKlqyx8pjmh406q97khb0haq2ij
+Hibernate: 
+    alter table lich_hoc 
+       drop constraint if exists FKlqyx8pjmh406q97khb0haq2ij
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       drop constraint if exists FK5h1ghfhh7nnybc1j0xpejf4n0
+Hibernate: 
+    alter table lich_hoc 
+       drop constraint if exists FK5h1ghfhh7nnybc1j0xpejf4n0
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       drop constraint if exists FKfgxy73qmjys0qhshww9tnegd3
+Hibernate: 
+    alter table lich_hoc 
+       drop constraint if exists FKfgxy73qmjys0qhshww9tnegd3
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_su_bao_tri_xe 
+       drop constraint if exists FKl4ydmo7fbcvpc65141vqfb80i
+Hibernate: 
+    alter table lich_su_bao_tri_xe 
+       drop constraint if exists FKl4ydmo7fbcvpc65141vqfb80i
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_thi 
+       drop constraint if exists FKfglxb4djtqtfl3adcyigiydvm
+Hibernate: 
+    alter table lich_thi 
+       drop constraint if exists FKfglxb4djtqtfl3adcyigiydvm
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_thi 
+       drop constraint if exists FKi6f95f7rgg425a670mob7bjb4
+Hibernate: 
+    alter table lich_thi 
+       drop constraint if exists FKi6f95f7rgg425a670mob7bjb4
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lop_hoc 
+       drop constraint if exists FK5epierwwhs1b8kpy1ysu35mod
+Hibernate: 
+    alter table lop_hoc 
+       drop constraint if exists FK5epierwwhs1b8kpy1ysu35mod
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table lop_hoc 
+       drop constraint if exists FKn5a8pjcscei81b129qaweticw
+Hibernate: 
+    alter table lop_hoc 
+       drop constraint if exists FKn5a8pjcscei81b129qaweticw
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table nhat_ky_he_thong 
+       drop constraint if exists FKnyebtgse0subo2jmv6o5upi2g
+Hibernate: 
+    alter table nhat_ky_he_thong 
+       drop constraint if exists FKnyebtgse0subo2jmv6o5upi2g
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table phan_cong 
+       drop constraint if exists FK7302x4yxq272q2n759x7hu348
+Hibernate: 
+    alter table phan_cong 
+       drop constraint if exists FK7302x4yxq272q2n759x7hu348
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table phan_cong 
+       drop constraint if exists FKlqpjis0mckdufaalafgpkaans
+Hibernate: 
+    alter table phan_cong 
+       drop constraint if exists FKlqpjis0mckdufaalafgpkaans
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table phan_cong 
+       drop constraint if exists FKk5555hbdh2ci160bci4qvx89q
+Hibernate: 
+    alter table phan_cong 
+       drop constraint if exists FKk5555hbdh2ci160bci4qvx89q
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table tai_khoan 
+       drop constraint if exists FK319akcgc7kdy3k11tdegqglfv
+Hibernate: 
+    alter table tai_khoan 
+       drop constraint if exists FK319akcgc7kdy3k11tdegqglfv
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table tai_khoan 
+       drop constraint if exists FKqylem5xofko3jx45otvr11t4
+Hibernate: 
+    alter table tai_khoan 
+       drop constraint if exists FKqylem5xofko3jx45otvr11t4
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table thanh_toan 
+       drop constraint if exists FKo6qvm7v43o9vcybvohounfb3c
+Hibernate: 
+    alter table thanh_toan 
+       drop constraint if exists FKo6qvm7v43o9vcybvohounfb3c
+2026-07-21 15:45:51 [main] DEBUG org.hibernate.SQL - 
+    alter table thanh_toan 
+       drop constraint if exists FK8vnr79fgr5xlqsu38uhbvtyve
+Hibernate: 
+    alter table thanh_toan 
+       drop constraint if exists FK8vnr79fgr5xlqsu38uhbvtyve
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table thi_sat_hach 
+       drop constraint if exists FKkxjrc3pe8fr1r5ycoaqhn7tx6
+Hibernate: 
+    alter table thi_sat_hach 
+       drop constraint if exists FKkxjrc3pe8fr1r5ycoaqhn7tx6
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table thi_sat_hach 
+       drop constraint if exists FK8630xd67r3gfqy2e5tt99p37a
+Hibernate: 
+    alter table thi_sat_hach 
+       drop constraint if exists FK8630xd67r3gfqy2e5tt99p37a
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table tra_gplx 
+       drop constraint if exists FK3pcqjx253105dgy6xytgk4l6m
+Hibernate: 
+    alter table tra_gplx 
+       drop constraint if exists FK3pcqjx253105dgy6xytgk4l6m
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table tra_gplx 
+       drop constraint if exists FKgkw343rogrpomfj6ao4wnnsmm
+Hibernate: 
+    alter table tra_gplx 
+       drop constraint if exists FKgkw343rogrpomfj6ao4wnnsmm
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table xe_tap_lai 
+       drop constraint if exists FK2tvwe4cb0eyye1g2kuyt0xsuy
+Hibernate: 
+    alter table xe_tap_lai 
+       drop constraint if exists FK2tvwe4cb0eyye1g2kuyt0xsuy
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists anh_cho_duyet
+Hibernate: 
+    drop table if exists anh_cho_duyet
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists bang_diem_thuong_xuyen
+Hibernate: 
+    drop table if exists bang_diem_thuong_xuyen
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists ca_hoc
+Hibernate: 
+    drop table if exists ca_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists ca_thi
+Hibernate: 
+    drop table if exists ca_thi
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists chuong_trinh_hoc
+Hibernate: 
+    drop table if exists chuong_trinh_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists dang_ky_khoa_hoc
+Hibernate: 
+    drop table if exists dang_ky_khoa_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists diem_danh
+Hibernate: 
+    drop table if exists diem_danh
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists giao_vien
+Hibernate: 
+    drop table if exists giao_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists hang_gplx
+Hibernate: 
+    drop table if exists hang_gplx
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists ho_so_hoc_vien
+Hibernate: 
+    drop table if exists ho_so_hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists hoc_vien
+Hibernate: 
+    drop table if exists hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists ket_qua_thi
+Hibernate: 
+    drop table if exists ket_qua_thi
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists khoa_hoc
+Hibernate: 
+    drop table if exists khoa_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists lich_hoc
+Hibernate: 
+    drop table if exists lich_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists lich_su_bao_tri_xe
+Hibernate: 
+    drop table if exists lich_su_bao_tri_xe
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists lich_thi
+Hibernate: 
+    drop table if exists lich_thi
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists lop_hoc
+Hibernate: 
+    drop table if exists lop_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists mon_hoc
+Hibernate: 
+    drop table if exists mon_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists nhat_ky_he_thong
+Hibernate: 
+    drop table if exists nhat_ky_he_thong
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists phan_cong
+Hibernate: 
+    drop table if exists phan_cong
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists phong_hoc
+Hibernate: 
+    drop table if exists phong_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists phong_thi
+Hibernate: 
+    drop table if exists phong_thi
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists tai_khoan
+Hibernate: 
+    drop table if exists tai_khoan
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists thanh_toan
+Hibernate: 
+    drop table if exists thanh_toan
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists thi_sat_hach
+Hibernate: 
+    drop table if exists thi_sat_hach
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists thong_bao
+Hibernate: 
+    drop table if exists thong_bao
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists tin_tuc
+Hibernate: 
+    drop table if exists tin_tuc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists tra_gplx
+Hibernate: 
+    drop table if exists tra_gplx
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists vai_tro
+Hibernate: 
+    drop table if exists vai_tro
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists xe
+Hibernate: 
+    drop table if exists xe
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists xe_tap_lai
+Hibernate: 
+    drop table if exists xe_tap_lai
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table anh_cho_duyet (
+        id int identity not null,
+        matk int,
+        ngaytao datetime2(6),
+        ghichu varchar(255),
+        trangthai varchar(255),
+        url varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table anh_cho_duyet (
+        id int identity not null,
+        matk int,
+        ngaytao datetime2(6),
+        ghichu varchar(255),
+        trangthai varchar(255),
+        url varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table bang_diem_thuong_xuyen (
+        diem float(53),
+        id int identity not null,
+        mahv int,
+        malop int,
+        mamh int,
+        ngay_cham date,
+        ghichu varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table bang_diem_thuong_xuyen (
+        diem float(53),
+        id int identity not null,
+        mahv int,
+        malop int,
+        mamh int,
+        ngay_cham date,
+        ghichu varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table ca_hoc (
+        giobatdau time,
+        gioketthuc time,
+        macahoc int identity not null,
+        tencahoc varchar(255),
+        primary key (macahoc)
+    )
+Hibernate: 
+    create table ca_hoc (
+        giobatdau time,
+        gioketthuc time,
+        macahoc int identity not null,
+        tencahoc varchar(255),
+        primary key (macahoc)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table ca_thi (
+        gio_bat_dau time,
+        gio_ket_thuc time,
+        macathi int identity not null,
+        ten_ca varchar(255),
+        primary key (macathi)
+    )
+Hibernate: 
+    create table ca_thi (
+        gio_bat_dau time,
+        gio_ket_thuc time,
+        macathi int identity not null,
+        ten_ca varchar(255),
+        primary key (macathi)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table chuong_trinh_hoc (
+        hocphi float(53),
+        macth int identity not null,
+        sobuoilythuyet int,
+        sobuoithuchanh int,
+        hangbang varchar(255),
+        tenchuongtrinh varchar(255),
+        primary key (macth)
+    )
+Hibernate: 
+    create table chuong_trinh_hoc (
+        hocphi float(53),
+        macth int identity not null,
+        sobuoilythuyet int,
+        sobuoithuchanh int,
+        hangbang varchar(255),
+        tenchuongtrinh varchar(255),
+        primary key (macth)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table dang_ky_khoa_hoc (
+        madk int identity not null,
+        mahv int not null,
+        makh int not null,
+        ngaydangky date,
+        trangthai varchar(255),
+        primary key (madk)
+    )
+Hibernate: 
+    create table dang_ky_khoa_hoc (
+        madk int identity not null,
+        mahv int not null,
+        makh int not null,
+        ngaydangky date,
+        trangthai varchar(255),
+        primary key (madk)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table diem_danh (
+        madd int identity not null,
+        mahv int,
+        malich int,
+        ngaydiemdanh date,
+        ghichu varchar(255),
+        trangthai varchar(255),
+        primary key (madd)
+    )
+Hibernate: 
+    create table diem_danh (
+        madd int identity not null,
+        mahv int,
+        malich int,
+        ngaydiemdanh date,
+        ghichu varchar(255),
+        trangthai varchar(255),
+        primary key (madd)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table giao_vien (
+        magv int identity not null,
+        ngaysinh date,
+        cccd varchar(255),
+        diachi varchar(255),
+        email varchar(255),
+        gioitinh varchar(255),
+        hangday varchar(255),
+        hoten varchar(255),
+        sodienthoai varchar(255),
+        primary key (magv)
+    )
+Hibernate: 
+    create table giao_vien (
+        magv int identity not null,
+        ngaysinh date,
+        cccd varchar(255),
+        diachi varchar(255),
+        email varchar(255),
+        gioitinh varchar(255),
+        hangday varchar(255),
+        hoten varchar(255),
+        sodienthoai varchar(255),
+        primary key (magv)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table hang_gplx (
+        id int identity not null,
+        mo_ta varchar(255),
+        ten_hang varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table hang_gplx (
+        id int identity not null,
+        mo_ta varchar(255),
+        ten_hang varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table ho_so_hoc_vien (
+        id int identity not null,
+        mahv int,
+        ngaydangky date,
+        anh_canh_caan varchar(255),
+        file_ho_so varchar(255),
+        ghichu varchar(255),
+        trang_thai_duyet varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table ho_so_hoc_vien (
+        id int identity not null,
+        mahv int,
+        ngaydangky date,
+        anh_canh_caan varchar(255),
+        file_ho_so varchar(255),
+        ghichu varchar(255),
+        trang_thai_duyet varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table hoc_vien (
+        mahv int identity not null,
+        ngaydangky date,
+        ngaysinh date,
+        cccd NVARCHAR(20),
+        diachi NVARCHAR(255),
+        email NVARCHAR(100),
+        gioitinh NVARCHAR(10),
+        hoten NVARCHAR(100),
+        sodienthoai NVARCHAR(15),
+        primary key (mahv)
+    )
+Hibernate: 
+    create table hoc_vien (
+        mahv int identity not null,
+        ngaydangky date,
+        ngaysinh date,
+        cccd NVARCHAR(20),
+        diachi NVARCHAR(255),
+        email NVARCHAR(100),
+        gioitinh NVARCHAR(10),
+        hoten NVARCHAR(100),
+        sodienthoai NVARCHAR(15),
+        primary key (mahv)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table ket_qua_thi (
+        diem float(53),
+        id int identity not null,
+        mathi int,
+        ghichu varchar(255),
+        ketqua varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table ket_qua_thi (
+        diem float(53),
+        id int identity not null,
+        mathi int,
+        ghichu varchar(255),
+        ketqua varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table khoa_hoc (
+        macth int,
+        makh int identity not null,
+        ngaybatdau date,
+        ngayketthuc date,
+        tenkhoahoc varchar(255),
+        trangthai varchar(255),
+        primary key (makh)
+    )
+Hibernate: 
+    create table khoa_hoc (
+        macth int,
+        makh int identity not null,
+        ngaybatdau date,
+        ngayketthuc date,
+        tenkhoahoc varchar(255),
+        trangthai varchar(255),
+        primary key (makh)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table lich_hoc (
+        macahoc int,
+        magv int,
+        malich int identity not null,
+        malop int,
+        mamh int,
+        maphong int,
+        ngayhoc date,
+        ghichu varchar(255),
+        primary key (malich)
+    )
+Hibernate: 
+    create table lich_hoc (
+        macahoc int,
+        magv int,
+        malich int identity not null,
+        malop int,
+        mamh int,
+        maphong int,
+        ngayhoc date,
+        ghichu varchar(255),
+        primary key (malich)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table lich_su_bao_tri_xe (
+        chi_phi float(53),
+        id int identity not null,
+        maxe int not null,
+        ngay_bao_tri date not null,
+        ngay_bao_tri_tiep_theo date,
+        so_km_hien_tai int,
+        ngay_tao datetime2(6),
+        trang_thai varchar(30),
+        loai_bao_tri varchar(50) not null,
+        nguoi_tao varchar(100),
+        don_vi_bao_tri varchar(200),
+        mo_ta NVARCHAR(MAX),
+        primary key (id)
+    )
+Hibernate: 
+    create table lich_su_bao_tri_xe (
+        chi_phi float(53),
+        id int identity not null,
+        maxe int not null,
+        ngay_bao_tri date not null,
+        ngay_bao_tri_tiep_theo date,
+        so_km_hien_tai int,
+        ngay_tao datetime2(6),
+        trang_thai varchar(30),
+        loai_bao_tri varchar(50) not null,
+        nguoi_tao varchar(100),
+        don_vi_bao_tri varchar(200),
+        mo_ta NVARCHAR(MAX),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table lich_thi (
+        macathi int,
+        malichthi int identity not null,
+        maphongthi int,
+        ngaythi date,
+        ghichu varchar(255),
+        primary key (malichthi)
+    )
+Hibernate: 
+    create table lich_thi (
+        macathi int,
+        malichthi int identity not null,
+        maphongthi int,
+        ngaythi date,
+        ghichu varchar(255),
+        primary key (malichthi)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table lop_hoc (
+        magv int,
+        makh int,
+        malop int identity not null,
+        soluong int,
+        tenlop varchar(255),
+        trangthai varchar(255),
+        primary key (malop)
+    )
+Hibernate: 
+    create table lop_hoc (
+        magv int,
+        makh int,
+        malop int identity not null,
+        soluong int,
+        tenlop varchar(255),
+        trangthai varchar(255),
+        primary key (malop)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table mon_hoc (
+        mamh int identity not null,
+        so_tiet int,
+        tenmonhoc varchar(255),
+        primary key (mamh)
+    )
+Hibernate: 
+    create table mon_hoc (
+        mamh int identity not null,
+        so_tiet int,
+        tenmonhoc varchar(255),
+        primary key (mamh)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table nhat_ky_he_thong (
+        id int identity not null,
+        tai_khoan_id int,
+        ngay_thuc_hien datetime2(6),
+        chi_tiet varchar(255),
+        hanh_dong varchar(255),
+        ip varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table nhat_ky_he_thong (
+        id int identity not null,
+        tai_khoan_id int,
+        ngay_thuc_hien datetime2(6),
+        chi_tiet varchar(255),
+        hanh_dong varchar(255),
+        ip varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table phan_cong (
+        id int identity not null,
+        magv int,
+        mahv int,
+        maxetl int,
+        ngay_phan_cong date,
+        ghichu varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table phan_cong (
+        id int identity not null,
+        magv int,
+        mahv int,
+        maxetl int,
+        ngay_phan_cong date,
+        ghichu varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table phong_hoc (
+        maphong int identity not null,
+        succhua int,
+        tenphong varchar(255),
+        trangthai varchar(255),
+        primary key (maphong)
+    )
+Hibernate: 
+    create table phong_hoc (
+        maphong int identity not null,
+        succhua int,
+        tenphong varchar(255),
+        trangthai varchar(255),
+        primary key (maphong)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table phong_thi (
+        maphongthi int identity not null,
+        succhua int,
+        diadiem varchar(255),
+        tenphong varchar(255),
+        trangthai varchar(255),
+        primary key (maphongthi)
+    )
+Hibernate: 
+    create table phong_thi (
+        maphongthi int identity not null,
+        succhua int,
+        diadiem varchar(255),
+        tenphong varchar(255),
+        trangthai varchar(255),
+        primary key (maphongthi)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table tai_khoan (
+        id int identity not null,
+        nguoi_tao_id int,
+        so_lan_dang_nhap_sai int not null,
+        vai_tro_id int not null,
+        khoa_den datetime2(6),
+        lan_dang_nhap_cuoi datetime2(6),
+        ngay_cap_nhat datetime2(6),
+        ngay_tao datetime2(6) not null,
+        so_dien_thoai NVARCHAR(15),
+        cccd NVARCHAR(20),
+        trang_thai varchar(20) not null,
+        ten_dang_nhap NVARCHAR(50) not null,
+        mat_khau varchar(100) not null,
+        ho_ten NVARCHAR(120) not null,
+        email NVARCHAR(150),
+        anh varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table tai_khoan (
+        id int identity not null,
+        nguoi_tao_id int,
+        so_lan_dang_nhap_sai int not null,
+        vai_tro_id int not null,
+        khoa_den datetime2(6),
+        lan_dang_nhap_cuoi datetime2(6),
+        ngay_cap_nhat datetime2(6),
+        ngay_tao datetime2(6) not null,
+        so_dien_thoai NVARCHAR(15),
+        cccd NVARCHAR(20),
+        trang_thai varchar(20) not null,
+        ten_dang_nhap NVARCHAR(50) not null,
+        mat_khau varchar(100) not null,
+        ho_ten NVARCHAR(120) not null,
+        email NVARCHAR(150),
+        anh varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table thanh_toan (
+        madk int not null,
+        mahv int not null,
+        matt int identity not null,
+        ngaythanhtoan date,
+        sotien float(53),
+        phuongthuc varchar(255),
+        trangthai varchar(255),
+        primary key (matt)
+    )
+Hibernate: 
+    create table thanh_toan (
+        madk int not null,
+        mahv int not null,
+        matt int identity not null,
+        ngaythanhtoan date,
+        sotien float(53),
+        phuongthuc varchar(255),
+        trangthai varchar(255),
+        primary key (matt)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table thi_sat_hach (
+        mahv int,
+        malichthi int,
+        mathi int identity not null,
+        ngaythi date,
+        ghichu varchar(255),
+        ketqua varchar(255),
+        primary key (mathi)
+    )
+Hibernate: 
+    create table thi_sat_hach (
+        mahv int,
+        malichthi int,
+        mathi int identity not null,
+        ngaythi date,
+        ghichu varchar(255),
+        ketqua varchar(255),
+        primary key (mathi)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table thong_bao (
+        id int identity not null,
+        ngay_tao datetime2(6),
+        doituong varchar(255),
+        noi_dung varchar(255),
+        tieu_de varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table thong_bao (
+        id int identity not null,
+        ngay_tao datetime2(6),
+        doituong varchar(255),
+        noi_dung varchar(255),
+        tieu_de varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table tin_tuc (
+        id int identity not null,
+        ngay_dang datetime2(6),
+        hinh_anh varchar(255),
+        mo_ta_ngan varchar(255),
+        noi_dung varchar(255),
+        tac_gia varchar(255),
+        tieu_de varchar(255),
+        trang_thai varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table tin_tuc (
+        id int identity not null,
+        ngay_dang datetime2(6),
+        hinh_anh varchar(255),
+        mo_ta_ngan varchar(255),
+        noi_dung varchar(255),
+        tac_gia varchar(255),
+        tieu_de varchar(255),
+        trang_thai varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table tra_gplx (
+        id int identity not null,
+        mahv int,
+        mathi int,
+        ngaycap date,
+        ngayhethan date,
+        hanggplx varchar(255),
+        sogplx varchar(255),
+        trangthai varchar(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table tra_gplx (
+        id int identity not null,
+        mahv int,
+        mathi int,
+        ngaycap date,
+        ngayhethan date,
+        hanggplx varchar(255),
+        sogplx varchar(255),
+        trangthai varchar(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table vai_tro (
+        id int identity not null,
+        trang_thai bit not null,
+        ngay_cap_nhat datetime2(6),
+        ngay_tao datetime2(6) not null,
+        ma_vai_tro NVARCHAR(30) not null,
+        ten_vai_tro NVARCHAR(100) not null,
+        mo_ta NVARCHAR(255),
+        primary key (id)
+    )
+Hibernate: 
+    create table vai_tro (
+        id int identity not null,
+        trang_thai bit not null,
+        ngay_cap_nhat datetime2(6),
+        ngay_tao datetime2(6) not null,
+        ma_vai_tro NVARCHAR(30) not null,
+        ten_vai_tro NVARCHAR(100) not null,
+        mo_ta NVARCHAR(255),
+        primary key (id)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table xe (
+        maxe int identity not null,
+        namsanxuat int,
+        bienso varchar(255),
+        hangxe varchar(255),
+        loaixe varchar(255),
+        trangthai varchar(255),
+        primary key (maxe)
+    )
+Hibernate: 
+    create table xe (
+        maxe int identity not null,
+        namsanxuat int,
+        bienso varchar(255),
+        hangxe varchar(255),
+        loaixe varchar(255),
+        trangthai varchar(255),
+        primary key (maxe)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create table xe_tap_lai (
+        handangkiem date,
+        maxe int,
+        maxetl int identity not null,
+        ngaydangkiem date,
+        ngay_cap_nhat datetime2(6),
+        ngay_tao datetime2(6),
+        ghichu varchar(255),
+        hangbang varchar(255),
+        primary key (maxetl)
+    )
+Hibernate: 
+    create table xe_tap_lai (
+        handangkiem date,
+        maxe int,
+        maxetl int identity not null,
+        ngaydangkiem date,
+        ngay_cap_nhat datetime2(6),
+        ngay_tao datetime2(6),
+        ghichu varchar(255),
+        hangbang varchar(255),
+        primary key (maxetl)
+    )
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create index idx_hoc_vien_cccd 
+       on hoc_vien (cccd)
+Hibernate: 
+    create index idx_hoc_vien_cccd 
+       on hoc_vien (cccd)
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create index idx_hoc_vien_hoten 
+       on hoc_vien (hoten)
+Hibernate: 
+    create index idx_hoc_vien_hoten 
+       on hoc_vien (hoten)
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create index idx_hoc_vien_sodienthoai 
+       on hoc_vien (sodienthoai)
+Hibernate: 
+    create index idx_hoc_vien_sodienthoai 
+       on hoc_vien (sodienthoai)
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table tai_khoan 
+       add constraint UKgkh4qh51gkiu8ccu1ybn1q7h7 unique (ten_dang_nhap)
+Hibernate: 
+    alter table tai_khoan 
+       add constraint UKgkh4qh51gkiu8ccu1ybn1q7h7 unique (ten_dang_nhap)
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    create unique nonclustered index UKd0golrlr34gkql6so1i4gbuw5 
+       on tai_khoan (email) where email is not null
+Hibernate: 
+    create unique nonclustered index UKd0golrlr34gkql6so1i4gbuw5 
+       on tai_khoan (email) where email is not null
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table vai_tro 
+       add constraint UKrbuqsd9nsv0qjgkt4xklypqc9 unique (ma_vai_tro)
+Hibernate: 
+    alter table vai_tro 
+       add constraint UKrbuqsd9nsv0qjgkt4xklypqc9 unique (ma_vai_tro)
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table vai_tro 
+       add constraint UKormf7tcbj4pefwi5xbm37hc9b unique (ten_vai_tro)
+Hibernate: 
+    alter table vai_tro 
+       add constraint UKormf7tcbj4pefwi5xbm37hc9b unique (ten_vai_tro)
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table bang_diem_thuong_xuyen 
+       add constraint FK21xdtdiofk5h28ug65dc15m5c 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table bang_diem_thuong_xuyen 
+       add constraint FK21xdtdiofk5h28ug65dc15m5c 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table bang_diem_thuong_xuyen 
+       add constraint FKp99nx9y433x9qsbthdbv6p3pd 
+       foreign key (mamh) 
+       references mon_hoc
+Hibernate: 
+    alter table bang_diem_thuong_xuyen 
+       add constraint FKp99nx9y433x9qsbthdbv6p3pd 
+       foreign key (mamh) 
+       references mon_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table dang_ky_khoa_hoc 
+       add constraint FKop2xwof1beurju9y0trda5wuf 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table dang_ky_khoa_hoc 
+       add constraint FKop2xwof1beurju9y0trda5wuf 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table dang_ky_khoa_hoc 
+       add constraint FKloxg49jj2m2p3glpx6potlmo9 
+       foreign key (makh) 
+       references khoa_hoc
+Hibernate: 
+    alter table dang_ky_khoa_hoc 
+       add constraint FKloxg49jj2m2p3glpx6potlmo9 
+       foreign key (makh) 
+       references khoa_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table diem_danh 
+       add constraint FK4uskd9caqq4civ76q7jh42j9v 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table diem_danh 
+       add constraint FK4uskd9caqq4civ76q7jh42j9v 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table diem_danh 
+       add constraint FKcjva655xntvk16wbayykc20ib 
+       foreign key (malich) 
+       references lich_hoc
+Hibernate: 
+    alter table diem_danh 
+       add constraint FKcjva655xntvk16wbayykc20ib 
+       foreign key (malich) 
+       references lich_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table ho_so_hoc_vien 
+       add constraint FKooq262q8s8x3nu7a4bd0qho7n 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table ho_so_hoc_vien 
+       add constraint FKooq262q8s8x3nu7a4bd0qho7n 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table ket_qua_thi 
+       add constraint FKkualvxjmh6bmj507nx5oce8uq 
+       foreign key (mathi) 
+       references thi_sat_hach
+Hibernate: 
+    alter table ket_qua_thi 
+       add constraint FKkualvxjmh6bmj507nx5oce8uq 
+       foreign key (mathi) 
+       references thi_sat_hach
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table khoa_hoc 
+       add constraint FKrqo08wmvt6o213q8yvls6anps 
+       foreign key (macth) 
+       references chuong_trinh_hoc
+Hibernate: 
+    alter table khoa_hoc 
+       add constraint FKrqo08wmvt6o213q8yvls6anps 
+       foreign key (macth) 
+       references chuong_trinh_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       add constraint FK33nkswenok2guk4sjuedk3s3f 
+       foreign key (macahoc) 
+       references ca_hoc
+Hibernate: 
+    alter table lich_hoc 
+       add constraint FK33nkswenok2guk4sjuedk3s3f 
+       foreign key (macahoc) 
+       references ca_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       add constraint FKewx85fi5dbjivek35x4o7n55t 
+       foreign key (magv) 
+       references giao_vien
+Hibernate: 
+    alter table lich_hoc 
+       add constraint FKewx85fi5dbjivek35x4o7n55t 
+       foreign key (magv) 
+       references giao_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       add constraint FKlqyx8pjmh406q97khb0haq2ij 
+       foreign key (malop) 
+       references lop_hoc
+Hibernate: 
+    alter table lich_hoc 
+       add constraint FKlqyx8pjmh406q97khb0haq2ij 
+       foreign key (malop) 
+       references lop_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       add constraint FK5h1ghfhh7nnybc1j0xpejf4n0 
+       foreign key (mamh) 
+       references mon_hoc
+Hibernate: 
+    alter table lich_hoc 
+       add constraint FK5h1ghfhh7nnybc1j0xpejf4n0 
+       foreign key (mamh) 
+       references mon_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_hoc 
+       add constraint FKfgxy73qmjys0qhshww9tnegd3 
+       foreign key (maphong) 
+       references phong_hoc
+Hibernate: 
+    alter table lich_hoc 
+       add constraint FKfgxy73qmjys0qhshww9tnegd3 
+       foreign key (maphong) 
+       references phong_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_su_bao_tri_xe 
+       add constraint FKl4ydmo7fbcvpc65141vqfb80i 
+       foreign key (maxe) 
+       references xe
+Hibernate: 
+    alter table lich_su_bao_tri_xe 
+       add constraint FKl4ydmo7fbcvpc65141vqfb80i 
+       foreign key (maxe) 
+       references xe
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_thi 
+       add constraint FKfglxb4djtqtfl3adcyigiydvm 
+       foreign key (macathi) 
+       references ca_thi
+Hibernate: 
+    alter table lich_thi 
+       add constraint FKfglxb4djtqtfl3adcyigiydvm 
+       foreign key (macathi) 
+       references ca_thi
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lich_thi 
+       add constraint FKi6f95f7rgg425a670mob7bjb4 
+       foreign key (maphongthi) 
+       references phong_thi
+Hibernate: 
+    alter table lich_thi 
+       add constraint FKi6f95f7rgg425a670mob7bjb4 
+       foreign key (maphongthi) 
+       references phong_thi
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lop_hoc 
+       add constraint FK5epierwwhs1b8kpy1ysu35mod 
+       foreign key (magv) 
+       references giao_vien
+Hibernate: 
+    alter table lop_hoc 
+       add constraint FK5epierwwhs1b8kpy1ysu35mod 
+       foreign key (magv) 
+       references giao_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table lop_hoc 
+       add constraint FKn5a8pjcscei81b129qaweticw 
+       foreign key (makh) 
+       references khoa_hoc
+Hibernate: 
+    alter table lop_hoc 
+       add constraint FKn5a8pjcscei81b129qaweticw 
+       foreign key (makh) 
+       references khoa_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table nhat_ky_he_thong 
+       add constraint FKnyebtgse0subo2jmv6o5upi2g 
+       foreign key (tai_khoan_id) 
+       references tai_khoan
+Hibernate: 
+    alter table nhat_ky_he_thong 
+       add constraint FKnyebtgse0subo2jmv6o5upi2g 
+       foreign key (tai_khoan_id) 
+       references tai_khoan
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table phan_cong 
+       add constraint FK7302x4yxq272q2n759x7hu348 
+       foreign key (magv) 
+       references giao_vien
+Hibernate: 
+    alter table phan_cong 
+       add constraint FK7302x4yxq272q2n759x7hu348 
+       foreign key (magv) 
+       references giao_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table phan_cong 
+       add constraint FKlqpjis0mckdufaalafgpkaans 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table phan_cong 
+       add constraint FKlqpjis0mckdufaalafgpkaans 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table phan_cong 
+       add constraint FKk5555hbdh2ci160bci4qvx89q 
+       foreign key (maxetl) 
+       references xe_tap_lai
+Hibernate: 
+    alter table phan_cong 
+       add constraint FKk5555hbdh2ci160bci4qvx89q 
+       foreign key (maxetl) 
+       references xe_tap_lai
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table tai_khoan 
+       add constraint FK319akcgc7kdy3k11tdegqglfv 
+       foreign key (nguoi_tao_id) 
+       references tai_khoan
+Hibernate: 
+    alter table tai_khoan 
+       add constraint FK319akcgc7kdy3k11tdegqglfv 
+       foreign key (nguoi_tao_id) 
+       references tai_khoan
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table tai_khoan 
+       add constraint FKqylem5xofko3jx45otvr11t4 
+       foreign key (vai_tro_id) 
+       references vai_tro
+Hibernate: 
+    alter table tai_khoan 
+       add constraint FKqylem5xofko3jx45otvr11t4 
+       foreign key (vai_tro_id) 
+       references vai_tro
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table thanh_toan 
+       add constraint FKo6qvm7v43o9vcybvohounfb3c 
+       foreign key (madk) 
+       references dang_ky_khoa_hoc
+Hibernate: 
+    alter table thanh_toan 
+       add constraint FKo6qvm7v43o9vcybvohounfb3c 
+       foreign key (madk) 
+       references dang_ky_khoa_hoc
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table thanh_toan 
+       add constraint FK8vnr79fgr5xlqsu38uhbvtyve 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table thanh_toan 
+       add constraint FK8vnr79fgr5xlqsu38uhbvtyve 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table thi_sat_hach 
+       add constraint FKkxjrc3pe8fr1r5ycoaqhn7tx6 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table thi_sat_hach 
+       add constraint FKkxjrc3pe8fr1r5ycoaqhn7tx6 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table thi_sat_hach 
+       add constraint FK8630xd67r3gfqy2e5tt99p37a 
+       foreign key (malichthi) 
+       references lich_thi
+Hibernate: 
+    alter table thi_sat_hach 
+       add constraint FK8630xd67r3gfqy2e5tt99p37a 
+       foreign key (malichthi) 
+       references lich_thi
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table tra_gplx 
+       add constraint FK3pcqjx253105dgy6xytgk4l6m 
+       foreign key (mahv) 
+       references hoc_vien
+Hibernate: 
+    alter table tra_gplx 
+       add constraint FK3pcqjx253105dgy6xytgk4l6m 
+       foreign key (mahv) 
+       references hoc_vien
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table tra_gplx 
+       add constraint FKgkw343rogrpomfj6ao4wnnsmm 
+       foreign key (mathi) 
+       references thi_sat_hach
+Hibernate: 
+    alter table tra_gplx 
+       add constraint FKgkw343rogrpomfj6ao4wnnsmm 
+       foreign key (mathi) 
+       references thi_sat_hach
+2026-07-21 15:45:52 [main] DEBUG org.hibernate.SQL - 
+    alter table xe_tap_lai 
+       add constraint FK2tvwe4cb0eyye1g2kuyt0xsuy 
+       foreign key (maxe) 
+       references xe
+Hibernate: 
+    alter table xe_tap_lai 
+       add constraint FK2tvwe4cb0eyye1g2kuyt0xsuy 
+       foreign key (maxe) 
+       references xe
+2026-07-21 15:45:52 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-21 15:45:52 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-21 15:45:52 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-07-21 15:45:53 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-07-21 15:45:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-07-21 15:45:53 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-07-21 15:45:53 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4920430f]]
+2026-07-21 15:45:53 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-07-21 15:45:53 [main] INFO  o.e.d.DatnNhom3BackendApplication - Started DatnNhom3BackendApplication in 5.098 seconds (process running for 5.37)
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [HV]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [HV]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [Vai trò Học viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:TIMESTAMP) <- [2026-07-21T15:45:53.582430900]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [Học viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [ADMIN]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [ADMIN]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [Vai trò Quản trị viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:TIMESTAMP) <- [2026-07-21T15:45:53.649998700]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [Quản trị viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [GV]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [GV]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [Vai trò Giáo viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:TIMESTAMP) <- [2026-07-21T15:45:53.654650700]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [Giáo viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [NV]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        vai_tro
+        (ma_vai_tro, mo_ta, ngay_cap_nhat, ngay_tao, ten_vai_tro, trang_thai) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [NV]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [Vai trò Nhân viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:TIMESTAMP) <- [2026-07-21T15:45:53.669691200]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [Nhân viên]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:BOOLEAN) <- [true]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        count_big(*) 
+    from
+        tai_khoan tk1_0
+Hibernate: 
+    select
+        count_big(*) 
+    from
+        tai_khoan tk1_0
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [ADMIN]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        tai_khoan
+        (anh, cccd, email, ho_ten, khoa_den, lan_dang_nhap_cuoi, mat_khau, ngay_cap_nhat, ngay_tao, nguoi_tao_id, so_dien_thoai, so_lan_dang_nhap_sai, ten_dang_nhap, trang_thai, vai_tro_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tai_khoan
+        (anh, cccd, email, ho_ten, khoa_den, lan_dang_nhap_cuoi, mat_khau, ngay_cap_nhat, ngay_tao, nguoi_tao_id, so_dien_thoai, so_lan_dang_nhap_sai, ten_dang_nhap, trang_thai, vai_tro_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Nguyễn Quản Trị]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [$2a$10$PqnAU3dtyKSriGdi1mj3PeSyUpaKlqbxXVAanXCgFGm0nsQS7jjrW]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:TIMESTAMP) <- [2026-07-21T15:45:53.703178700]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (10:INTEGER) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (11:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (12:INTEGER) <- [0]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (13:VARCHAR) <- [admin]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (14:VARCHAR) <- [ACTIVE]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (15:INTEGER) <- [2]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [giaovien]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [GV]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        tai_khoan
+        (anh, cccd, email, ho_ten, khoa_den, lan_dang_nhap_cuoi, mat_khau, ngay_cap_nhat, ngay_tao, nguoi_tao_id, so_dien_thoai, so_lan_dang_nhap_sai, ten_dang_nhap, trang_thai, vai_tro_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tai_khoan
+        (anh, cccd, email, ho_ten, khoa_den, lan_dang_nhap_cuoi, mat_khau, ngay_cap_nhat, ngay_tao, nguoi_tao_id, so_dien_thoai, so_lan_dang_nhap_sai, ten_dang_nhap, trang_thai, vai_tro_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Trần Văn Giáo]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [$2a$10$jn4dikmqGz67uaVOqbnXBOHAMuACJJtfDcut8POTiWYwS0BmJXGc.]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:TIMESTAMP) <- [2026-07-21T15:45:53.799777200]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (10:INTEGER) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (11:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (12:INTEGER) <- [0]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (13:VARCHAR) <- [giaovien]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (14:VARCHAR) <- [ACTIVE]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (15:INTEGER) <- [3]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [nhanvien]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [NV]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        tai_khoan
+        (anh, cccd, email, ho_ten, khoa_den, lan_dang_nhap_cuoi, mat_khau, ngay_cap_nhat, ngay_tao, nguoi_tao_id, so_dien_thoai, so_lan_dang_nhap_sai, ten_dang_nhap, trang_thai, vai_tro_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        tai_khoan
+        (anh, cccd, email, ho_ten, khoa_den, lan_dang_nhap_cuoi, mat_khau, ngay_cap_nhat, ngay_tao, nguoi_tao_id, so_dien_thoai, so_lan_dang_nhap_sai, ten_dang_nhap, trang_thai, vai_tro_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [Lê Thị Nhân]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:VARCHAR) <- [$2a$10$rkHThZdElS23CnU.V4YAhONirjb2rDF.OIhHAMuc55VooeHuJBvTG]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:TIMESTAMP) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:TIMESTAMP) <- [2026-07-21T15:45:53.866002300]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (10:INTEGER) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (11:VARCHAR) <- [null]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (12:INTEGER) <- [0]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (13:VARCHAR) <- [nhanvien]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (14:VARCHAR) <- [ACTIVE]
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (15:INTEGER) <- [4]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [3]
+2026-07-21 15:45:53 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+2026-07-21 15:45:53 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [4]
+2026-07-21 15:46:53 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-07-21 15:51:50 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-21 15:51:50 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-21 15:51:50 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 26 ms
+2026-07-21 15:51:50 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:51:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:07 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:07 [http-nio-8081-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:36 [http-nio-8081-exec-7] DEBUG org.hibernate.SQL - 
+    select
+        tt1_0.id,
+        tt1_0.hinh_anh,
+        tt1_0.mo_ta_ngan,
+        tt1_0.ngay_dang,
+        tt1_0.noi_dung,
+        tt1_0.tac_gia,
+        tt1_0.tieu_de,
+        tt1_0.trang_thai 
+    from
+        tin_tuc tt1_0
+Hibernate: 
+    select
+        tt1_0.id,
+        tt1_0.hinh_anh,
+        tt1_0.mo_ta_ngan,
+        tt1_0.ngay_dang,
+        tt1_0.noi_dung,
+        tt1_0.tac_gia,
+        tt1_0.tieu_de,
+        tt1_0.trang_thai 
+    from
+        tin_tuc tt1_0
+2026-07-21 15:52:45 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:45 [http-nio-8081-exec-9] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:59 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:59 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:59 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:59 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:59 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:59 [http-nio-8081-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:59 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:59 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:59 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:59 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:52:59 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:52:59 [http-nio-8081-exec-6] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-07-21 15:53:03 [http-nio-8081-exec-8] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-07-21 15:53:03 [http-nio-8081-exec-8] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [hocvien1]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  08:32 min
+[INFO] Finished at: 2026-07-21T15:54:16+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.3.5:run (default-cli) on project DATN_NHOM3_BACKEND: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
