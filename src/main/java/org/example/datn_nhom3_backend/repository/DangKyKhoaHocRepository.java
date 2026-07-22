@@ -4,4 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 @Repository
 public interface DangKyKhoaHocRepository extends JpaRepository<DangKyKhoaHoc, Integer> {
+    long countByKhoaHoc_Makh(Integer makh);
 }

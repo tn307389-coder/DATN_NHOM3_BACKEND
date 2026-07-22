@@ -10,6 +10,7 @@ import org.example.datn_nhom3_backend.repository.PhanCongRepository;
 import org.example.datn_nhom3_backend.service.GiaoVienService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -55,7 +56,7 @@ public class GiaoVienServiceImpl implements GiaoVienService {
         GiaoVien giaoVien = repository.findById(magv)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy giáo viên với ID: " + magv));
 
-        List<HocVien> hocVienQuaLop = lopHocRepository.findHocVienByGiaoVien(magv);
+        List<HocVien> hocVienQuaLop = mapRawToHocVien(lopHocRepository.findRawHocVienByGiaoVien(magv));
         List<HocVien> hocVienQuaPhanCong = phanCongRepository.findHocVienByGiaoVien(magv);
 
         Map<Integer, ThongKeHocVienGiaoVien.HocVienTomTat> hocVienMap = new LinkedHashMap<>();
@@ -80,5 +81,23 @@ public class GiaoVienServiceImpl implements GiaoVienService {
                 hocVienQuaPhanCong.size(),
                 danhSach.size(),
                 danhSach);
+    }
+
+    private List<HocVien> mapRawToHocVien(List<Object[]> raw) {
+        List<HocVien> list = new ArrayList<>();
+        for (Object[] row : raw) {
+            HocVien hv = new HocVien();
+            hv.setMahv((Integer) row[0]);
+            hv.setHoten((String) row[1]);
+            if (row[2] != null) hv.setNgaysinh(LocalDate.parse(row[2].toString()));
+            hv.setGioitinh((String) row[3]);
+            hv.setCccd((String) row[4]);
+            hv.setSodienthoai((String) row[5]);
+            hv.setEmail((String) row[6]);
+            hv.setDiachi((String) row[7]);
+            if (row[8] != null) hv.setNgaydangky(LocalDate.parse(row[8].toString()));
+            list.add(hv);
+        }
+        return list;
     }
 }

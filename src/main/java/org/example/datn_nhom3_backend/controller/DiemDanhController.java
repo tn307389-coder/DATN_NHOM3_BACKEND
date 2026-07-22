@@ -1,13 +1,15 @@
 package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
+import org.example.datn_nhom3_backend.dto.BatchDiemDanhRequest;
 import org.example.datn_nhom3_backend.entity.DiemDanh;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.service.DiemDanhService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.lang.reflect.Field;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
+import java.util.Map;
 @RestController
 @RequestMapping("/api/diem-danh")
 @CrossOrigin(origins = "http://localhost:5173")
@@ -26,9 +28,18 @@ public class DiemDanhController {
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
+    @GetMapping("/by-lich")
+    public List<DiemDanh> getByLichAndDate(@RequestParam Integer malich, @RequestParam String ngay) {
+        return service.getByLichAndDate(malich, LocalDate.parse(ngay));
+    }
     @PostMapping
     public DiemDanh create(@RequestBody DiemDanh data) {
         return service.save(data);
+    }
+    @PostMapping("/batch")
+    public ResponseEntity<Map<String, Object>> saveBatch(@RequestBody BatchDiemDanhRequest request) {
+        service.saveBatch(request);
+        return ResponseEntity.ok(Map.of("success", true, "message", "Lưu điểm danh thành công"));
     }
     @PutMapping("/{id}")
     public DiemDanh update(@PathVariable Integer id, @RequestBody DiemDanh data) throws IllegalAccessException {

@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
+import org.example.datn_nhom3_backend.dto.KhoaHocDto;
 import org.example.datn_nhom3_backend.entity.KhoaHoc;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.service.KhoaHocService;
@@ -7,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.lang.reflect.Field;
 import java.util.List;
-import java.util.Optional;
 @RestController
 @RequestMapping("/api/khoa-hoc")
 @CrossOrigin(origins = "http://localhost:5173")
@@ -17,8 +17,8 @@ public class KhoaHocController {
         this.service = service;
     }
     @GetMapping
-    public List<KhoaHoc> getAll() {
-        return service.getAll();
+    public List<KhoaHocDto> getAll() {
+        return service.getAllWithCount();
     }
     @GetMapping("/{id}")
     public ResponseEntity<KhoaHoc> getById(@PathVariable Integer id) {

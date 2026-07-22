@@ -16,10 +16,10 @@ public interface LopHocRepository extends JpaRepository<LopHoc, Integer> {
     @Query("SELECT lh FROM LopHoc lh WHERE lh.giaoVien.magv = :magv")
     List<LopHoc> findByGiaoVienMagv(Integer magv);
 
-    @Query(value = "SELECT DISTINCT hv.* FROM hoc_vien hv " +
+    @Query(value = "SELECT DISTINCT hv.mahv, hv.hoten, hv.ngaysinh, hv.gioitinh, hv.cccd, hv.sodienthoai, hv.email, hv.diachi, hv.ngaydangky FROM hoc_vien hv " +
            "JOIN dang_ky_khoa_hoc dk ON hv.mahv = dk.mahv " +
            "JOIN khoa_hoc kh ON dk.makh = kh.makh " +
            "JOIN lop_hoc lh ON kh.makh = lh.makh " +
            "WHERE lh.magv = :magv", nativeQuery = true)
-    List<HocVien> findHocVienByGiaoVien(@Param("magv") Integer magv);
+    List<Object[]> findRawHocVienByGiaoVien(@Param("magv") Integer magv);
 }
