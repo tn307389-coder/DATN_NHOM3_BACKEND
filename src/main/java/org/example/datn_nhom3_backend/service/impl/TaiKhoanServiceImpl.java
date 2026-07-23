@@ -33,7 +33,7 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
 
     @Override
     public List<TaiKhoan> getAll() {
-        return repository.findAll();
+        return repository.findAllWithVaiTro();
     }
 
     @Override

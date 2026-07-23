@@ -58,7 +58,9 @@ public class AnhChoDuyetController {
             Files.copy(file.getInputStream(), dir.resolve(fileName), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 
             AnhChoDuyet a = new AnhChoDuyet();
-            a.setMatk(matk);
+            TaiKhoan tk = taiKhoanRepository.findById(matk).orElse(null);
+            if (tk == null) return ResponseEntity.status(400).body(Map.of("success", false, "message", "Tài khoản không tồn tại"));
+            a.setTaiKhoan(tk);
             a.setUrl("/avatars/" + fileName);
             a.setTrangthai("CHO_DUYET");
             a.setNgaytao(java.time.LocalDateTime.now());
@@ -79,7 +81,7 @@ public class AnhChoDuyetController {
     public ResponseEntity<?> cuaToi() {
         Integer matk = currentMatk();
         if (matk == null) return ResponseEntity.status(401).body(Map.of("success", false, "message", "Chưa đăng nhập"));
-        return repository.findByMatk(matk).stream()
+        return repository.findByTaiKhoan_Matk(matk).stream()
                 .filter(a -> !"DA_DUYET".equals(a.getTrangthai()))
                 .reduce((a, b) -> b)
                 .map(ResponseEntity::ok)
@@ -90,7 +92,7 @@ public class AnhChoDuyetController {
     @PutMapping("/{id}/duyet")
     public ResponseEntity<?> duyet(@PathVariable Integer id) {
         return repository.findById(id).map(a -> {
-            TaiKhoan tk = taiKhoanRepository.findById(a.getMatk()).orElse(null);
+            TaiKhoan tk = taiKhoanRepository.findById(a.getTaiKhoan().getMatk()).orElse(null);
             if (tk != null) {
                 tk.setAnh(a.getUrl());
                 taiKhoanRepository.save(tk);

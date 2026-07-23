@@ -103,14 +103,20 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> {
                 auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
                 auth.requestMatchers("/api/login", "/api/logout").permitAll();
+                auth.requestMatchers(HttpMethod.POST, "/api/login/google").permitAll();
                 auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/public").permitAll();
+                auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/send-otp").permitAll();
+                auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/verify-otp").permitAll();
+                auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/tra-cuu").permitAll();
                 auth.requestMatchers(HttpMethod.GET, "/api/tin-tuc/**").permitAll();
+                auth.requestMatchers(HttpMethod.GET, "/api/danh-muc/**").permitAll();
                 auth.requestMatchers(HttpMethod.GET, "/api/hoc-vien/me/**").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.GET, "/api/giao-vien/me/**").hasAnyRole("ADMIN", "NV", "GV");
                 auth.requestMatchers(HttpMethod.GET, "/api/tai-khoan/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.PUT, "/api/tai-khoan/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.GET, "/api/dashboard/**").hasAnyRole("ADMIN", "NV");
                 auth.requestMatchers(HttpMethod.POST, "/api/upload/avatar").hasAnyRole("ADMIN", "NV", "GV", "HV");
+                auth.requestMatchers(HttpMethod.POST, "/api/upload/tin-tuc").hasAnyRole("ADMIN", "NV");
                 auth.requestMatchers(HttpMethod.POST, "/api/anh-cho-duyet").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.GET, "/api/anh-cho-duyet/cua-toi").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.GET, "/api/anh-cho-duyet").hasAnyRole("ADMIN", "NV");

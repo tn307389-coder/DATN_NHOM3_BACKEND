@@ -18,6 +18,12 @@ public class MonHoc {
     @Column(name = "tenmonhoc")
     private String tenmonhoc;
 
+    @Column(name = "loai_mon_hoc")
+    private String loaimonhoc;
+
     @Column(name = "so_tiet")
     private Integer sotiet;
+
+    @Column(name = "ghi_chu")
+    private String ghichu;
 }

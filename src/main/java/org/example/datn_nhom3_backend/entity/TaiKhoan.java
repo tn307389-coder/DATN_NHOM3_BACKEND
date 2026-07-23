@@ -37,6 +37,9 @@ public class TaiKhoan {
     @Column(name = "cccd", length = 20, columnDefinition = "NVARCHAR(20)")
     private String cccd;
 
+    @Column(name = "google_id", length = 100)
+    private String googleId;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "vai_tro_id", nullable = false)
     private VaiTro vaitro;

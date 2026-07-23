@@ -16,8 +16,9 @@ public class AnhChoDuyet {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "matk")
-    private Integer matk;
+    @ManyToOne
+    @JoinColumn(name = "matk")
+    private TaiKhoan taiKhoan;
 
     @Column(name = "url")
     private String url;

@@ -17,6 +17,10 @@ public class LichThi {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer malichthi;
 
+    @ManyToOne
+    @JoinColumn(name = "makh")
+    private KhoaHoc khoaHoc;
+
     @Column(name = "ngaythi")
     private LocalDate ngaythi;
 

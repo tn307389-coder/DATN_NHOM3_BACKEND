@@ -336,17 +336,17 @@ BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng F', N'Kéo r
 -- =========================================================
 IF NOT EXISTS (SELECT 1 FROM ho_so_hoc_vien WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'))
 BEGIN
-    INSERT INTO ho_so_hoc_vien (mahv, ngaydangky, trang_thai_duyet, ghichu, anh_canh_caan, file_ho_so)
+    INSERT INTO ho_so_hoc_vien (mahv, ngaydangky, trang_thai_duyet, ghichu, anh_canh_cuoc, file_ho_so)
     VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'), '2026-01-10', N'ĐÃ DUYỆT', N'Hồ sơ đầy đủ', N'anh_a.jpg', N'hoso_a.pdf')
 END;
 IF NOT EXISTS (SELECT 1 FROM ho_so_hoc_vien WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Trần Thị B'))
 BEGIN
-    INSERT INTO ho_so_hoc_vien (mahv, ngaydangky, trang_thai_duyet, ghichu, anh_canh_caan, file_ho_so)
+    INSERT INTO ho_so_hoc_vien (mahv, ngaydangky, trang_thai_duyet, ghichu, anh_canh_cuoc, file_ho_so)
     VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Trần Thị B'), '2026-01-12', N'CHỜ DUYỆT', N'Thiếu ảnh căn cước', N'anh_b.jpg', N'hoso_b.pdf')
 END;
 IF NOT EXISTS (SELECT 1 FROM ho_so_hoc_vien WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'))
 BEGIN
-    INSERT INTO ho_so_hoc_vien (mahv, ngaydangky, trang_thai_duyet, ghichu, anh_canh_caan, file_ho_so)
+    INSERT INTO ho_so_hoc_vien (mahv, ngaydangky, trang_thai_duyet, ghichu, anh_canh_cuoc, file_ho_so)
     VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'), '2026-01-15', N'ĐÃ DUYỆT', N'Hồ sơ hợp lệ', N'anh_c.jpg', N'hoso_c.pdf')
 END;
 

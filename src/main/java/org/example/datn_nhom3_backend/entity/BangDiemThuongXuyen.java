@@ -32,8 +32,9 @@ public class BangDiemThuongXuyen {
     @Column(name = "ghichu")
     private String ghichu;
 
-    @Column(name = "malop")
-    private Integer malop;
+    @ManyToOne
+    @JoinColumn(name = "malop")
+    private LopHoc lopHoc;
 
     @Column(name = "ngay_cham")
     private LocalDate ngayCham;

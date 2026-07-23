@@ -3,6 +3,7 @@ import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.dto.ThongKeHocVienGiaoVien;
 import org.example.datn_nhom3_backend.entity.*;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
+import org.example.datn_nhom3_backend.repository.GiaoVienRepository;
 import org.example.datn_nhom3_backend.repository.LichHocRepository;
 import org.example.datn_nhom3_backend.repository.TaiKhoanRepository;
 import org.example.datn_nhom3_backend.service.GiaoVienService;
@@ -23,15 +24,18 @@ import java.util.stream.Collectors;
 @CrossOrigin(origins = "http://localhost:5173")
 public class GiaoVienController {
     private final GiaoVienService service;
+    private final GiaoVienRepository giaoVienRepository;
     private final LichHocRepository lichHocRepository;
     private final TaiKhoanRepository taiKhoanRepository;
     private final HocVienService hocVienService;
 
     public GiaoVienController(GiaoVienService service,
+                              GiaoVienRepository giaoVienRepository,
                               LichHocRepository lichHocRepository,
                               TaiKhoanRepository taiKhoanRepository,
                               HocVienService hocVienService) {
         this.service = service;
+        this.giaoVienRepository = giaoVienRepository;
         this.lichHocRepository = lichHocRepository;
         this.taiKhoanRepository = taiKhoanRepository;
         this.hocVienService = hocVienService;
@@ -44,11 +48,10 @@ public class GiaoVienController {
         if (username == null) throw new ResourceNotFoundException("Chưa đăng nhập");
         TaiKhoan tk = taiKhoanRepository.findByTendangnhap(username)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản"));
-        List<GiaoVien> ds = service.getAll().stream()
-                .filter(gv -> gv.getCccd() != null && gv.getCccd().equals(tk.getCccd()))
-                .collect(Collectors.toList());
-        if (ds.isEmpty()) throw new ResourceNotFoundException("Không tìm thấy giáo viên");
-        return ResponseEntity.ok(ds.get(0));
+        if (tk.getCccd() == null) throw new ResourceNotFoundException("Tài khoản chưa có CCCD");
+        GiaoVien gv = giaoVienRepository.findByCccd(tk.getCccd())
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy giáo viên"));
+        return ResponseEntity.ok(gv);
     }
 
     @GetMapping("/me/lich-day")
@@ -60,11 +63,9 @@ public class GiaoVienController {
         if (username == null) throw new ResourceNotFoundException("Chưa đăng nhập");
         TaiKhoan tk = taiKhoanRepository.findByTendangnhap(username)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản"));
-        List<GiaoVien> ds = service.getAll().stream()
-                .filter(gv -> gv.getCccd() != null && gv.getCccd().equals(tk.getCccd()))
-                .collect(Collectors.toList());
-        if (ds.isEmpty()) throw new ResourceNotFoundException("Không tìm thấy giáo viên");
-        GiaoVien gv = ds.get(0);
+        if (tk.getCccd() == null) throw new ResourceNotFoundException("Tài khoản chưa có CCCD");
+        GiaoVien gv = giaoVienRepository.findByCccd(tk.getCccd())
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy giáo viên"));
 
         LocalDate tu = tuNgay != null ? LocalDate.parse(tuNgay) : null;
         LocalDate den = denNgay != null ? LocalDate.parse(denNgay) : null;

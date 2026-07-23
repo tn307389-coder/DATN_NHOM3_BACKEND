@@ -1,8 +1,13 @@
 package org.example.datn_nhom3_backend.entity;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import lombok.*;
 @Entity
 @Table(name = "ho_so_hoc_vien")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class HoSoHocVien {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,50 +22,8 @@ public class HoSoHocVien {
     private String tinhtrang;
     @Column(name = "ghichu")
     private String ghichu;
-    @Column(name = "anh_canh_caan")
-    private String anhCanhCan;
+    @Column(name = "anh_canh_cuoc")
+    private String anhCanhCuoc;
     @Column(name = "file_ho_so")
     private String fileHoSo;
-    public Integer getMahs() {
-        return mahs;
-    }
-    public void setMahs(Integer mahs) {
-        this.mahs = mahs;
-    }
-    public HocVien getHocVien() {
-        return hocVien;
-    }
-    public void setHocVien(HocVien hocVien) {
-        this.hocVien = hocVien;
-    }
-    public LocalDate getNgaydangky() {
-        return ngaydangky;
-    }
-    public void setNgaydangky(LocalDate ngaydangky) {
-        this.ngaydangky = ngaydangky;
-    }
-    public String getTinhtrang() {
-        return tinhtrang;
-    }
-    public void setTinhtrang(String tinhtrang) {
-        this.tinhtrang = tinhtrang;
-    }
-    public String getGhichu() {
-        return ghichu;
-    }
-    public void setGhichu(String ghichu) {
-        this.ghichu = ghichu;
-    }
-    public String getAnhCanhCan() {
-        return anhCanhCan;
-    }
-    public void setAnhCanhCan(String anhCanhCan) {
-        this.anhCanhCan = anhCanhCan;
-    }
-    public String getFileHoSo() {
-        return fileHoSo;
-    }
-    public void setFileHoSo(String fileHoSo) {
-        this.fileHoSo = fileHoSo;
-    }
 }

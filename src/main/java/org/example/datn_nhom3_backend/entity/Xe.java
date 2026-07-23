@@ -15,6 +15,7 @@ public class Xe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer maxe;
 
+    @Column(unique = true, nullable = false)
     private String bienso;
 
     private String loaixe;

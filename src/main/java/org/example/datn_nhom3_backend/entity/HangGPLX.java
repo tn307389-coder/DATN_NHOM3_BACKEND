@@ -16,6 +16,9 @@ public class HangGPLX {
     @Column(name = "id")
     private Integer mahang;
 
+    @Column(name = "ma_hang", unique = true, nullable = false, length = 30)
+    private String maHang;
+
     @Column(name = "ten_hang")
     private String tenhang;
 

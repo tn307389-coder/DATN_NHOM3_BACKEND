@@ -78,19 +78,14 @@ public class ThongKeServiceImpl implements ThongKeService {
 
     @Override
     public Double getTongDoanhThu() {
-        return thanhToanRepository.findAll().stream()
-                .mapToDouble(p -> p.getSotien() != null ? p.getSotien() : 0.0)
-                .sum();
+        Double result = thanhToanRepository.sumAllSotien();
+        return result != null ? result : 0.0;
     }
 
     @Override
     public Double getDoanhThuTheoKhoangThoiGian(LocalDate tuNgay, LocalDate denNgay) {
-        return thanhToanRepository.findAll().stream()
-                .filter(p -> p.getNgaythanhtoan() != null &&
-                        !p.getNgaythanhtoan().isBefore(tuNgay) &&
-                        !p.getNgaythanhtoan().isAfter(denNgay))
-                .mapToDouble(p -> p.getSotien() != null ? p.getSotien() : 0.0)
-                .sum();
+        Double result = thanhToanRepository.sumSotienByNgaythanhtoanBetween(tuNgay, denNgay);
+        return result != null ? result : 0.0;
     }
 
     @Override

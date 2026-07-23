@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface AnhChoDuyetRepository extends JpaRepository<AnhChoDuyet, Integer> {
     List<AnhChoDuyet> findByTrangthai(String trangthai);
-    List<AnhChoDuyet> findByMatk(Integer matk);
+    List<AnhChoDuyet> findByTaiKhoan_Matk(Integer matk);
 }

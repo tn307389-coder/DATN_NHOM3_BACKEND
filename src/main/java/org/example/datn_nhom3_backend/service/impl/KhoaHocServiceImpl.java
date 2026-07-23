@@ -5,8 +5,7 @@ import org.example.datn_nhom3_backend.repository.DangKyKhoaHocRepository;
 import org.example.datn_nhom3_backend.repository.KhoaHocRepository;
 import org.example.datn_nhom3_backend.service.KhoaHocService;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.Optional;
 @Service
 public class KhoaHocServiceImpl implements KhoaHocService {
@@ -21,6 +20,13 @@ public class KhoaHocServiceImpl implements KhoaHocService {
     public List<KhoaHocDto> getAllWithCount() {
         List<KhoaHoc> list = repository.findAll();
         List<KhoaHocDto> result = new ArrayList<>();
+
+        Map<Integer, Long> countMap = new HashMap<>();
+        List<Object[]> grouped = dangKyKhoaHocRepository.countGroupByKhoaHoc();
+        for (Object[] row : grouped) {
+            countMap.put(((Number) row[0]).intValue(), ((Number) row[1]).longValue());
+        }
+
         for (KhoaHoc kh : list) {
             KhoaHocDto dto = new KhoaHocDto();
             dto.setMakh(kh.getMakh());
@@ -32,7 +38,7 @@ public class KhoaHocServiceImpl implements KhoaHocService {
                 dto.setMacth(kh.getChuongTrinhHoc().getMacth());
                 dto.setTencth(kh.getChuongTrinhHoc().getTenchuongtrinh());
             }
-            dto.setSoLuongHocVien(dangKyKhoaHocRepository.countByKhoaHoc_Makh(kh.getMakh()));
+            dto.setSoLuongHocVien(countMap.getOrDefault(kh.getMakh(), 0L));
             result.add(dto);
         }
         return result;

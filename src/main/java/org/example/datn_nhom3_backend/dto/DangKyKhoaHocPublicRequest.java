@@ -13,7 +13,6 @@ public class DangKyKhoaHocPublicRequest {
     private String hoten;
     private LocalDate ngaysinh;
     private String gioitinh;
-    private String cccd;
     private String sodienthoai;
     private String email;
     private String diachi;
