@@ -1,11 +1,9 @@
 package org.example.datn_nhom3_backend.controller;
-import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.entity.KetQuaThi;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.service.KetQuaThiService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 @RestController
@@ -31,21 +29,12 @@ public class KetQuaThiController {
         return service.save(data);
     }
     @PutMapping("/{id}")
-    public KetQuaThi update(@PathVariable Integer id, @RequestBody KetQuaThi data) throws IllegalAccessException {
-        setEntityId(data, id);
+    public KetQuaThi update(@PathVariable Integer id, @RequestBody KetQuaThi data) {
+        data.setMakq(id);
         return service.save(data);
     }
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
-    }
-    private void setEntityId(KetQuaThi data, Integer id) throws IllegalAccessException {
-        for (Field field : data.getClass().getDeclaredFields()) {
-            if (field.isAnnotationPresent(Id.class)) {
-                field.setAccessible(true);
-                field.set(data, id);
-                return;
-            }
-        }
     }
 }

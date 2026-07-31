@@ -15,8 +15,8 @@ public class PhanCong {
     @JoinColumn(name = "magv")
     private GiaoVien giaoVien;
     @ManyToOne
-    @JoinColumn(name = "maxetl")
-    private XeTapLai xeTapLai;
+    @JoinColumn(name = "maxe")
+    private Xe xe;
     @Column(name = "ngay_phan_cong")
     private LocalDate ngayphancong;
     @Column(name = "ghichu")
@@ -39,11 +39,11 @@ public class PhanCong {
     public void setGiaoVien(GiaoVien giaoVien) {
         this.giaoVien = giaoVien;
     }
-    public XeTapLai getXeTapLai() {
-        return xeTapLai;
+    public Xe getXe() {
+        return xe;
     }
-    public void setXeTapLai(XeTapLai xeTapLai) {
-        this.xeTapLai = xeTapLai;
+    public void setXe(Xe xe) {
+        this.xe = xe;
     }
     public LocalDate getNgayphancong() {
         return ngayphancong;

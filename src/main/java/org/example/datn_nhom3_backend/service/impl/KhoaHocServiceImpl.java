@@ -37,6 +37,7 @@ public class KhoaHocServiceImpl implements KhoaHocService {
             if (kh.getChuongTrinhHoc() != null) {
                 dto.setMacth(kh.getChuongTrinhHoc().getMacth());
                 dto.setTencth(kh.getChuongTrinhHoc().getTenchuongtrinh());
+                dto.setHangBang(kh.getChuongTrinhHoc().getHangbang());
             }
             dto.setSoLuongHocVien(countMap.getOrDefault(kh.getMakh(), 0L));
             result.add(dto);

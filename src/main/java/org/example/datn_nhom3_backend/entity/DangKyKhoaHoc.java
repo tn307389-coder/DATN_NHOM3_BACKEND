@@ -25,6 +25,10 @@ public class DangKyKhoaHoc {
     @JoinColumn(name = "makh", nullable = false)
     private KhoaHoc khoaHoc;
 
+    @ManyToOne
+    @JoinColumn(name = "hang_gplx_id")
+    private HangGPLX hangGPLX;
+
     private LocalDate ngaydangky;
 
     private String trangthai;

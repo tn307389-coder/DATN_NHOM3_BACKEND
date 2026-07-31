@@ -7,6 +7,7 @@ public class KhoaHocDto {
     private String tenkhoahoc;
     private Integer macth;
     private String tencth;
+    private String hangBang;
     private LocalDate ngaybatdau;
     private LocalDate ngayketthuc;
     private String trangthai;
@@ -20,6 +21,8 @@ public class KhoaHocDto {
     public void setMacth(Integer macth) { this.macth = macth; }
     public String getTencth() { return tencth; }
     public void setTencth(String tencth) { this.tencth = tencth; }
+    public String getHangBang() { return hangBang; }
+    public void setHangBang(String hangBang) { this.hangBang = hangBang; }
     public LocalDate getNgaybatdau() { return ngaybatdau; }
     public void setNgaybatdau(LocalDate ngaybatdau) { this.ngaybatdau = ngaybatdau; }
     public LocalDate getNgayketthuc() { return ngayketthuc; }

@@ -2,6 +2,7 @@ package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.dto.DangKyKhoaHocPublicRequest;
 import org.example.datn_nhom3_backend.entity.DangKyKhoaHoc;
+import org.example.datn_nhom3_backend.entity.HangGPLX;
 import org.example.datn_nhom3_backend.entity.HocVien;
 import org.example.datn_nhom3_backend.entity.KhoaHoc;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -9,6 +10,7 @@ import org.example.datn_nhom3_backend.service.DangKyKhoaHocService;
 import org.example.datn_nhom3_backend.service.HocVienService;
 import org.example.datn_nhom3_backend.service.KhoaHocService;
 import org.example.datn_nhom3_backend.service.OtpService;
+import org.example.datn_nhom3_backend.repository.HangGPLXRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.lang.reflect.Field;
@@ -26,18 +28,21 @@ public class DangKyKhoaHocController {
     private final OtpService otpService;
     private final org.example.datn_nhom3_backend.repository.DangKyKhoaHocRepository dkRepository;
     private final org.example.datn_nhom3_backend.repository.HocVienRepository hvRepository;
+    private final HangGPLXRepository hangGPLXRepository;
     public DangKyKhoaHocController(DangKyKhoaHocService service,
                                    HocVienService hocVienService,
                                    KhoaHocService khoaHocService,
                                    OtpService otpService,
                                    org.example.datn_nhom3_backend.repository.DangKyKhoaHocRepository dkRepository,
-                                   org.example.datn_nhom3_backend.repository.HocVienRepository hvRepository) {
+                                   org.example.datn_nhom3_backend.repository.HocVienRepository hvRepository,
+                                   HangGPLXRepository hangGPLXRepository) {
         this.service = service;
         this.hocVienService = hocVienService;
         this.khoaHocService = khoaHocService;
         this.otpService = otpService;
         this.dkRepository = dkRepository;
         this.hvRepository = hvRepository;
+        this.hangGPLXRepository = hangGPLXRepository;
     }
     @GetMapping
     public List<DangKyKhoaHoc> getAll() { return service.getAll(); }
@@ -105,9 +110,16 @@ public class DangKyKhoaHocController {
         KhoaHoc kh = khoaHocService.getById(req.getMakh())
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy khóa học"));
 
+        HangGPLX hg = null;
+        if (req.getMaHang() != null) {
+            hg = hangGPLXRepository.findById(Integer.valueOf(req.getMaHang()))
+                    .orElse(null);
+        }
+
         DangKyKhoaHoc dk = new DangKyKhoaHoc();
         dk.setHocVien(savedHv);
         dk.setKhoaHoc(kh);
+        dk.setHangGPLX(hg);
         dk.setNgaydangky(LocalDate.now());
         dk.setTrangthai("Chờ duyệt");
         DangKyKhoaHoc saved = service.save(dk);
@@ -135,6 +147,7 @@ public class DangKyKhoaHocController {
                 item.put("tenKhoaHoc", dk.getKhoaHoc() != null ? dk.getKhoaHoc().getTenkhoahoc() : null);
                 item.put("ngaydangky", dk.getNgaydangky() != null ? dk.getNgaydangky().toString() : null);
                 item.put("trangthai", dk.getTrangthai());
+                item.put("hangGPLX", dk.getHangGPLX() != null ? dk.getHangGPLX().getTenHang() : null);
                 result.add(item);
             }
         }

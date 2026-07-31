@@ -21,6 +21,15 @@ public class PhanCongServiceImpl implements PhanCongService {
     }
     @Override
     public PhanCong save(PhanCong data) {
+        if (data.getXe() != null && data.getXe().getMaxe() == null) {
+            data.setXe(null);
+        }
+        if (data.getHocVien() != null && data.getHocVien().getMahv() == null) {
+            data.setHocVien(null);
+        }
+        if (data.getGiaoVien() != null && data.getGiaoVien().getMagv() == null) {
+            data.setGiaoVien(null);
+        }
         return repository.save(data);
     }
     @Override

@@ -20,6 +20,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final String jwtHeader;
     private final String jwtPrefix;
 
+    private static final List<String> PUBLIC_PATHS = List.of(
+        "/ws", "/api/login", "/api/logout",
+        "/api/dang-ky-khoa-hoc/public", "/api/dang-ky-khoa-hoc/send-otp",
+        "/api/dang-ky-khoa-hoc/verify-otp", "/api/dang-ky-khoa-hoc/tra-cuu",
+        "/api/tin-tuc", "/api/danh-muc", "/api/files"
+    );
+
     public JwtAuthenticationFilter(JwtUtil jwtUtil, String jwtHeader, String jwtPrefix) {
         this.jwtUtil = jwtUtil;
         this.jwtHeader = jwtHeader;
@@ -30,6 +37,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+
+        String path = request.getRequestURI();
+        for (String p : PUBLIC_PATHS) {
+            if (path.startsWith(p)) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+        }
 
         String header = request.getHeader(jwtHeader);
         String token = null;

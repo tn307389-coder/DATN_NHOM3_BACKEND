@@ -2,6 +2,7 @@ package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.entity.ThongBao;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
+import org.example.datn_nhom3_backend.service.ThongBaoRealtimeService;
 import org.example.datn_nhom3_backend.service.ThongBaoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +14,10 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:5173")
 public class ThongBaoController {
     private final ThongBaoService service;
-    public ThongBaoController(ThongBaoService service) {
+    private final ThongBaoRealtimeService realtimeService;
+    public ThongBaoController(ThongBaoService service, ThongBaoRealtimeService realtimeService) {
         this.service = service;
+        this.realtimeService = realtimeService;
     }
     @GetMapping
     public List<ThongBao> getAll() {
@@ -28,7 +31,9 @@ public class ThongBaoController {
     }
     @PostMapping
     public ThongBao create(@RequestBody ThongBao data) {
-        return service.save(data);
+        ThongBao saved = service.save(data);
+        realtimeService.notifyAdmins(saved.getTieude(), saved.getNoidung(), saved.getDoituong());
+        return saved;
     }
     @PutMapping("/{id}")
     public ThongBao update(@PathVariable Integer id, @RequestBody ThongBao data) throws IllegalAccessException {

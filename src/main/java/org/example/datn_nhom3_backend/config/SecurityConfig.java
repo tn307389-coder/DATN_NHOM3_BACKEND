@@ -110,6 +110,8 @@ public class SecurityConfig {
                 auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/tra-cuu").permitAll();
                 auth.requestMatchers(HttpMethod.GET, "/api/tin-tuc/**").permitAll();
                 auth.requestMatchers(HttpMethod.GET, "/api/danh-muc/**").permitAll();
+                auth.requestMatchers(HttpMethod.GET, "/api/khoa-hoc/**").permitAll();
+                auth.requestMatchers(HttpMethod.GET, "/api/hang-gplx/**").permitAll();
                 auth.requestMatchers(HttpMethod.GET, "/api/hoc-vien/me/**").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.GET, "/api/giao-vien/me/**").hasAnyRole("ADMIN", "NV", "GV");
                 auth.requestMatchers(HttpMethod.GET, "/api/tai-khoan/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
@@ -122,6 +124,7 @@ public class SecurityConfig {
                 auth.requestMatchers(HttpMethod.GET, "/api/anh-cho-duyet").hasAnyRole("ADMIN", "NV");
                 auth.requestMatchers(HttpMethod.PUT, "/api/anh-cho-duyet/**").hasAnyRole("ADMIN", "NV");
                 auth.requestMatchers("/api/files/**").permitAll();
+                auth.requestMatchers("/ws/**").permitAll();
                 auth.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/api-docs/**", "/v3/api-docs/**").permitAll();
 
                 GET_ROLES.forEach((path, roles) ->
