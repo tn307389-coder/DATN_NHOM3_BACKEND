@@ -2,6 +2,7 @@ package org.example.datn_nhom3_backend.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "lop_hoc")
@@ -26,6 +27,10 @@ public class LopHoc {
     private GiaoVien giaoVien;
 
     private Integer soluong;
+
+    private LocalDate ngaybatdau;
+
+    private LocalDate ngayketthuc;
 
     private String trangthai;
 }

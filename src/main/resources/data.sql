@@ -185,20 +185,25 @@ END;
 -- =========================================================
 -- ĐĂNG KÝ KHOÁ HỌC
 -- =========================================================
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='dang_ky_khoa_hoc' AND COLUMN_NAME='hang_gplx_id')
+BEGIN
+    ALTER TABLE dang_ky_khoa_hoc ADD hang_gplx_id INT REFERENCES hang_gplx(id);
+END;
+
 IF NOT EXISTS (SELECT 1 FROM dang_ky_khoa_hoc WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A') AND makh = (SELECT makh FROM khoa_hoc WHERE tenkhoahoc = N'Khóa B2 - Tháng 7/2026'))
 BEGIN
-    INSERT INTO dang_ky_khoa_hoc (mahv, makh, ngaydangky, trangthai)
-    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'), (SELECT makh FROM khoa_hoc WHERE tenkhoahoc = N'Khóa B2 - Tháng 7/2026'), '2026-01-10', N'ĐÃ ĐĂNG KÝ')
+    INSERT INTO dang_ky_khoa_hoc (mahv, makh, hang_gplx_id, ngaydangky, trangthai)
+    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'), (SELECT makh FROM khoa_hoc WHERE tenkhoahoc = N'Khóa B2 - Tháng 7/2026'), (SELECT id FROM hang_gplx WHERE ma_hang = N'B2'), '2026-01-10', N'ĐÃ ĐĂNG KÝ')
 END;
 IF NOT EXISTS (SELECT 1 FROM dang_ky_khoa_hoc WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Trần Thị B'))
 BEGIN
-    INSERT INTO dang_ky_khoa_hoc (mahv, makh, ngaydangky, trangthai)
-    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Trần Thị B'), (SELECT makh FROM khoa_hoc WHERE tenkhoahoc = N'Khóa B2 - Tháng 7/2026'), '2026-01-12', N'ĐÃ ĐĂNG KÝ')
+    INSERT INTO dang_ky_khoa_hoc (mahv, makh, hang_gplx_id, ngaydangky, trangthai)
+    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Trần Thị B'), (SELECT makh FROM khoa_hoc WHERE tenkhoahoc = N'Khóa B2 - Tháng 7/2026'), (SELECT id FROM hang_gplx WHERE ma_hang = N'B2'), '2026-01-12', N'ĐÃ ĐĂNG KÝ')
 END;
 IF NOT EXISTS (SELECT 1 FROM dang_ky_khoa_hoc WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'))
 BEGIN
-    INSERT INTO dang_ky_khoa_hoc (mahv, makh, ngaydangky, trangthai)
-    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'), (SELECT makh FROM khoa_hoc WHERE tenkhoahoc = N'Khóa C - Tháng 7/2026'), '2026-01-15', N'ĐANG XỬ LÝ')
+    INSERT INTO dang_ky_khoa_hoc (mahv, makh, hang_gplx_id, ngaydangky, trangthai)
+    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'), (SELECT makh FROM khoa_hoc WHERE tenkhoahoc = N'Khóa C - Tháng 7/2026'), (SELECT id FROM hang_gplx WHERE ma_hang = N'C'), '2026-01-15', N'ĐANG XỬ LÝ')
 END;
 
 -- =========================================================
@@ -225,13 +230,13 @@ END;
 -- =========================================================
 IF NOT EXISTS (SELECT 1 FROM phan_cong WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'))
 BEGIN
-    INSERT INTO phan_cong (mahv, magv, maxetl, ngay_phan_cong, ghichu)
-    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'), (SELECT magv FROM giao_vien WHERE hoten = N'Nguyễn Văn Thầy'), (SELECT maxetl FROM xe_tap_lai WHERE maxe = (SELECT maxe FROM xe WHERE bienso = N'51A-123.45')), '2026-07-10', N'Xe tập lái Toyota')
+    INSERT INTO phan_cong (mahv, magv, maxe, ngay_phan_cong, ghichu)
+    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'), (SELECT magv FROM giao_vien WHERE hoten = N'Nguyễn Văn Thầy'), (SELECT maxe FROM xe WHERE bienso = N'51A-123.45'), '2026-07-10', N'Xe tập lái Toyota')
 END;
 IF NOT EXISTS (SELECT 1 FROM phan_cong WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'))
 BEGIN
-    INSERT INTO phan_cong (mahv, magv, maxetl, ngay_phan_cong, ghichu)
-    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'), (SELECT magv FROM giao_vien WHERE hoten = N'Lê Thị Cô'), (SELECT maxetl FROM xe_tap_lai WHERE maxe = (SELECT maxe FROM xe WHERE bienso = N'51A-123.45')), '2026-07-11', N'Xe tập lái Toyota')
+    INSERT INTO phan_cong (mahv, magv, maxe, ngay_phan_cong, ghichu)
+    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Phạm Văn C'), (SELECT magv FROM giao_vien WHERE hoten = N'Lê Thị Cô'), (SELECT maxe FROM xe WHERE bienso = N'51A-123.45'), '2026-07-11', N'Xe tập lái Toyota')
 END;
 
 -- =========================================================
@@ -294,10 +299,10 @@ END;
 -- =========================================================
 -- KẾT QUẢ THI
 -- =========================================================
-IF NOT EXISTS (SELECT 1 FROM ket_qua_thi WHERE mathi = (SELECT mathi FROM thi_sat_hach WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A')))
+IF NOT EXISTS (SELECT 1 FROM ket_qua_thi WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'))
 BEGIN
-    INSERT INTO ket_qua_thi (mathi, diem, ketqua, ghichu)
-    VALUES ((SELECT mathi FROM thi_sat_hach WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A')), 9.0, N'ĐẬU', N'Kết quả thi sát hạch đạt')
+    INSERT INTO ket_qua_thi (mahv, malichthi, diem, ketqua, ghichu)
+    VALUES ((SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A'), (SELECT malichthi FROM lich_thi WHERE ngaythi = '2026-08-15'), 9.0, N'Đạt', N'Kết quả thi sát hạch đạt')
 END;
 
 -- =========================================================
@@ -315,21 +320,21 @@ END;
 -- HẠNG GPLX
 -- =========================================================
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng A1')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng A1', N'Xe mô tô hai bánh dung tích từ 50cc đến dưới 175cc') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'A1', N'GPLX hạng A1', N'Xe mô tô hai bánh dung tích từ 50cc đến dưới 175cc') END;
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng A2')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng A2', N'Xe mô tô hai bánh dung tích từ 175cc trở lên') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'A2', N'GPLX hạng A2', N'Xe mô tô hai bánh dung tích từ 175cc trở lên') END;
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng B1')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng B1', N'Ô tô số tự động chở người đến 9 chỗ') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'B1', N'GPLX hạng B1', N'Ô tô số tự động chở người đến 9 chỗ') END;
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng B2')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng B2', N'Ô tô số tự động và số sàn chở người đến 9 chỗ') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'B2', N'GPLX hạng B2', N'Ô tô số tự động và số sàn chở người đến 9 chỗ') END;
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng C')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng C', N'Ô tô tải, ô tô chuyên dùng trọng tải từ 3.500kg trở lên') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'C', N'GPLX hạng C', N'Ô tô tải, ô tô chuyên dùng trọng tải từ 3.500kg trở lên') END;
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng D')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng D', N'Ô tô chở người từ 10 đến 30 chỗ') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'D', N'GPLX hạng D', N'Ô tô chở người từ 10 đến 30 chỗ') END;
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng E')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng E', N'Ô tô chở người trên 30 chỗ') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'E', N'GPLX hạng E', N'Ô tô chở người trên 30 chỗ') END;
 IF NOT EXISTS (SELECT 1 FROM hang_gplx WHERE ten_hang = N'GPLX hạng F')
-BEGIN INSERT INTO hang_gplx (ten_hang, mo_ta) VALUES (N'GPLX hạng F', N'Kéo rơ moóc, sơ mi rơ moóc') END;
+BEGIN INSERT INTO hang_gplx (ma_hang, ten_hang, mo_ta) VALUES (N'F', N'GPLX hạng F', N'Kéo rơ moóc, sơ mi rơ moóc') END;
 
 -- =========================================================
 -- HỒ SƠ HỌC VIÊN

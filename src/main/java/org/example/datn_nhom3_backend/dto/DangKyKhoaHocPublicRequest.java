@@ -17,4 +17,5 @@ public class DangKyKhoaHocPublicRequest {
     private String email;
     private String diachi;
     private Integer makh;
+    private String maHang;
 }

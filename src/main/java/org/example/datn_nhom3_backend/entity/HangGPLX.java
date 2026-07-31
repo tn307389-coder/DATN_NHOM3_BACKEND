@@ -14,14 +14,14 @@ public class HangGPLX {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer mahang;
+    private Integer id;
 
-    @Column(name = "ma_hang", unique = true, nullable = false, length = 30)
+    @Column(name = "ma_hang", unique = true, length = 30)
     private String maHang;
 
     @Column(name = "ten_hang")
-    private String tenhang;
+    private String tenHang;
 
     @Column(name = "mo_ta")
-    private String mota;
+    private String moTa;
 }

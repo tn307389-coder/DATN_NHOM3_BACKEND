@@ -1,8 +1,12 @@
 package org.example.datn_nhom3_backend.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "thi_sat_hach")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ThiSatHach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
