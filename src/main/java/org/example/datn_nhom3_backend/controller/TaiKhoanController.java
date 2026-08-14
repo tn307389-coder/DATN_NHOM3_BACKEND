@@ -13,6 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -58,6 +59,25 @@ public class TaiKhoanController {
         TaiKhoan tk = service.updateCurrentUser(username, request);
         tk.setMatkhau(null);
         return ResponseEntity.ok(tk);
+    }
+
+    @PutMapping("/me/doi-mat-khau")
+    @LogAction(action = "Đổi mật khẩu", table = "tai_khoan")
+    public ResponseEntity<Map<String, Object>> doiMatKhau(@RequestBody Map<String, String> body) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication != null ? authentication.getName() : null;
+        if (username == null || "anonymousUser".equals(username)) {
+            return ResponseEntity.status(401).body(Map.of("success", false, "message", "Chưa đăng nhập"));
+        }
+        try {
+            boolean ok = service.doiMatKhau(username, body.get("matKhauCu"), body.get("matKhauMoi"));
+            if (!ok) {
+                return ResponseEntity.badRequest().body(Map.of("success", false, "message", "Mật khẩu cũ không đúng"));
+            }
+            return ResponseEntity.ok(Map.of("success", true, "message", "Đổi mật khẩu thành công"));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Map.of("success", false, "message", e.getMessage()));
+        }
     }
 
     @GetMapping("/{id}")

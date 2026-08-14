@@ -1,6 +1,7 @@
 package org.example.datn_nhom3_backend.controller;
 
 import jakarta.persistence.Id;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.entity.LichSuBaoTriXe;
 import org.example.datn_nhom3_backend.entity.Xe;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -44,6 +45,7 @@ public class LichSuBaoTriXeController {
     }
 
     @PostMapping
+    @LogAction(action = "Xử lý lịch sử bảo trì xe", table = "lich_su_bao_tri_xe")
     public LichSuBaoTriXe create(@RequestBody CreateBaoTriRequest request) {
         Xe xe = xeRepository.findById(request.getMaxe())
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy xe: " + request.getMaxe()));
@@ -65,6 +67,7 @@ public class LichSuBaoTriXeController {
     }
 
     @PutMapping("/{id}")
+    @LogAction(action = "Xử lý lịch sử bảo trì xe", table = "lich_su_bao_tri_xe")
     public LichSuBaoTriXe update(@PathVariable Integer id, @RequestBody UpdateBaoTriRequest request) {
         LichSuBaoTriXe entity = service.getById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu: " + id));
@@ -83,6 +86,7 @@ public class LichSuBaoTriXeController {
     }
 
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xử lý lịch sử bảo trì xe", table = "lich_su_bao_tri_xe")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }

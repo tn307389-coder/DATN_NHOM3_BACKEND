@@ -30,6 +30,9 @@ import java.util.UUID;
 @CrossOrigin(origins = "http://localhost:5173")
 public class LoginController {
 
+    private static final int MAX_LOGIN_ATTEMPTS = 5;
+    private static final int LOCK_MINUTES = 15;
+
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final TaiKhoanRepository taiKhoanRepository;
@@ -53,28 +56,51 @@ public class LoginController {
 
     @PostMapping("/login")
     public Object login(@RequestBody Map<String, String> request) {
-        try {
-            String tendangnhap = request.get("tendangnhap");
-            String matkhau = request.get("matkhau");
+        String tendangnhap = request.get("tendangnhap");
+        String matkhau = request.get("matkhau");
 
+        if (tendangnhap == null || tendangnhap.isBlank() || matkhau == null || matkhau.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of(
+                    "success", false, "message", "Tên đăng nhập và mật khẩu không được để trống"));
+        }
+
+        Optional<TaiKhoan> taiKhoan = taiKhoanRepository.findByTendangnhap(tendangnhap);
+        if (taiKhoan.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
+                    "success", false, "message", "Sai tên đăng nhập hoặc mật khẩu"));
+        }
+        TaiKhoan tk = taiKhoan.get();
+
+        // Kiểm tra tài khoản bị khóa
+        if (tk.getKhoaDen() != null && tk.getKhoaDen().isAfter(java.time.LocalDateTime.now())) {
+            return ResponseEntity.status(HttpStatus.LOCKED).body(Map.of(
+                    "success", false,
+                    "message", "Tài khoản bị khóa do nhập sai mật khẩu nhiều lần. Thử lại sau "
+                            + tk.getKhoaDen().plusMinutes(0) + "."));
+        }
+
+        try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(tendangnhap, matkhau));
 
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String token = jwtUtil.generateToken(userDetails);
+            String refreshToken = jwtUtil.generateRefreshToken(userDetails);
 
-            Optional<TaiKhoan> taiKhoan = taiKhoanRepository.findByTendangnhap(tendangnhap);
+            // Đăng nhập thành công: reset bộ đếm và trạng thái khóa
+            tk.setSoLanDangNhapSai(0);
+            tk.setKhoaDen(null);
+            tk.setLanDangNhapCuoi(java.time.LocalDateTime.now());
+            taiKhoanRepository.save(tk);
 
             Map<String, Object> data = new java.util.HashMap<>();
             data.put("token", token);
+            data.put("refreshToken", refreshToken);
             data.put("tendangnhap", tendangnhap);
-            if (taiKhoan.isPresent()) {
-                TaiKhoan tk = taiKhoan.get();
-                data.put("hoten", tk.getHoten());
-                data.put("vaitro", tk.getVaitro() != null ? tk.getVaitro().getTenVaiTro() : null);
-                data.put("maVaiTro", tk.getVaitro() != null ? tk.getVaitro().getMaVaiTro() : null);
-                data.put("cccd", tk.getCccd());
-            }
+            data.put("hoten", tk.getHoten());
+            data.put("vaitro", tk.getVaitro() != null ? tk.getVaitro().getTenVaiTro() : null);
+            data.put("maVaiTro", tk.getVaitro() != null ? tk.getVaitro().getMaVaiTro() : null);
+            data.put("cccd", tk.getCccd());
 
             return Map.of(
                     "success", true,
@@ -82,10 +108,23 @@ public class LoginController {
                     "data", data
             );
         } catch (BadCredentialsException e) {
+            // Đếm số lần nhập sai, khóa sau MAX_ATTEMPTS lần trong LOCK_MINUTES phút
+            int attempts = (tk.getSoLanDangNhapSai() == null ? 0 : tk.getSoLanDangNhapSai()) + 1;
+            tk.setSoLanDangNhapSai(attempts);
+            if (attempts >= MAX_LOGIN_ATTEMPTS) {
+                tk.setKhoaDen(java.time.LocalDateTime.now().plusMinutes(LOCK_MINUTES));
+                tk.setSoLanDangNhapSai(0);
+                taiKhoanRepository.save(tk);
+                return ResponseEntity.status(HttpStatus.LOCKED).body(Map.of(
+                        "success", false,
+                        "message", "Bạn đã nhập sai mật khẩu quá " + MAX_LOGIN_ATTEMPTS
+                                + " lần. Tài khoản bị khóa trong " + LOCK_MINUTES + " phút."));
+            }
+            taiKhoanRepository.save(tk);
+            int conLai = MAX_LOGIN_ATTEMPTS - attempts;
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
                     "success", false,
-                    "message", "Sai tên đăng nhập hoặc mật khẩu"
-            ));
+                    "message", "Sai tên đăng nhập hoặc mật khẩu. Còn " + conLai + " lần thử."));
         }
     }
 
@@ -153,9 +192,11 @@ public class LoginController {
                             java.util.List.of(new org.springframework.security.core.authority.SimpleGrantedAuthority("ROLE_" + tk.getVaitro().getMaVaiTro()))
                     );
             String token = jwtUtil.generateToken(userDetails);
+            String refreshToken = jwtUtil.generateRefreshToken(userDetails);
 
             Map<String, Object> data = new java.util.HashMap<>();
             data.put("token", token);
+            data.put("refreshToken", refreshToken);
             data.put("tendangnhap", tk.getTendangnhap());
             data.put("hoten", tk.getHoten());
             data.put("vaitro", tk.getVaitro() != null ? tk.getVaitro().getTenVaiTro() : null);
@@ -169,6 +210,39 @@ public class LoginController {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("success", false, "message", "Lỗi xác thực Google: " + e.getMessage()));
         }
+    }
+
+    @PostMapping("/refresh")
+    public Object refresh(@RequestBody Map<String, String> request) {
+        String refreshToken = request.get("refreshToken");
+        if (refreshToken == null || refreshToken.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of("success", false, "message", "Thiếu refresh token"));
+        }
+        if (!jwtUtil.isTokenValid(refreshToken) || !jwtUtil.isRefreshToken(refreshToken)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
+                    "success", false, "message", "Refresh token không hợp lệ hoặc đã hết hạn"));
+        }
+        String username = jwtUtil.extractUsername(refreshToken);
+        Optional<TaiKhoan> taiKhoan = taiKhoanRepository.findByTendangnhap(username);
+        if (taiKhoan.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of(
+                    "success", false, "message", "Tài khoản không tồn tại"));
+        }
+        TaiKhoan tk = taiKhoan.get();
+        if (tk.getKhoaDen() != null && tk.getKhoaDen().isAfter(java.time.LocalDateTime.now())) {
+            return ResponseEntity.status(HttpStatus.LOCKED).body(Map.of(
+                    "success", false, "message", "Tài khoản bị khóa"));
+        }
+        org.springframework.security.core.userdetails.User userDetails =
+                new org.springframework.security.core.userdetails.User(
+                        tk.getTendangnhap(), tk.getMatkhau(),
+                        java.util.List.of(new org.springframework.security.core.authority.SimpleGrantedAuthority(
+                                "ROLE_" + tk.getVaitro().getMaVaiTro()))
+                );
+        String newToken = jwtUtil.generateToken(userDetails);
+        String newRefresh = jwtUtil.generateRefreshToken(userDetails);
+        return Map.of("success", true, "message", "Làm mới token thành công",
+                "data", Map.of("token", newToken, "refreshToken", newRefresh));
     }
 
     @PostMapping("/logout")

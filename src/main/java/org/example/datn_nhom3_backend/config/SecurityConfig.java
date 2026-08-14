@@ -103,8 +103,9 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> {
                 auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll();
-                auth.requestMatchers("/api/login", "/api/logout").permitAll();
+                auth.requestMatchers("/api/login", "/api/logout", "/api/refresh").permitAll();
                 auth.requestMatchers(HttpMethod.POST, "/api/login/google").permitAll();
+                auth.requestMatchers(HttpMethod.POST, "/api/quen-mat-khau/**").permitAll();
                 auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/public").permitAll();
                 auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/send-otp").permitAll();
                 auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/verify-otp").permitAll();
@@ -117,6 +118,7 @@ public class SecurityConfig {
                 auth.requestMatchers(HttpMethod.GET, "/api/giao-vien/me/**").hasAnyRole("ADMIN", "NV", "GV");
                 auth.requestMatchers(HttpMethod.GET, "/api/tai-khoan/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.PUT, "/api/tai-khoan/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
+                auth.requestMatchers(HttpMethod.PUT, "/api/tai-khoan/me/doi-mat-khau").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.GET, "/api/dashboard/**").hasAnyRole("ADMIN", "NV");
                 auth.requestMatchers(HttpMethod.POST, "/api/upload/avatar").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.POST, "/api/upload/tin-tuc").hasAnyRole("ADMIN", "NV");

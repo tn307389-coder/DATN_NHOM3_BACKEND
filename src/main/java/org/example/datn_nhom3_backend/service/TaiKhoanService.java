@@ -30,4 +30,6 @@ public interface TaiKhoanService {
     Optional<TaiKhoan> findByTendangnhap(String tendangnhap);
 
     TaiKhoan updateCurrentUser(String tendangnhap, TaiKhoanRequest request);
+
+    boolean doiMatKhau(String tendangnhap, String matKhauCu, String matKhauMoi);
 }

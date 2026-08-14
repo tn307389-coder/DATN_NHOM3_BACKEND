@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.entity.AnhChoDuyet;
 import org.example.datn_nhom3_backend.entity.TaiKhoan;
 import org.example.datn_nhom3_backend.repository.AnhChoDuyetRepository;
@@ -45,6 +46,7 @@ public class AnhChoDuyetController {
 
     // Học viên/GV/NV/ADMIN upload ảnh -> tạo bản ghi CHỜ DUYỆT (chưa lưu vào tai_khoan)
     @PostMapping
+    @LogAction(action = "Upload ảnh chờ duyệt", table = "anh_cho_duyet")
     public ResponseEntity<?> upload(@RequestParam("file") MultipartFile file) {
         Integer matk = currentMatk();
         if (matk == null) return ResponseEntity.status(401).body(Map.of("success", false, "message", "Chưa đăng nhập"));
@@ -90,6 +92,7 @@ public class AnhChoDuyetController {
 
     // ADMIN/NV: duyệt -> cập nhật ảnh đại diện của tài khoản
     @PutMapping("/{id}/duyet")
+    @LogAction(action = "Duyệt ảnh", table = "anh_cho_duyet")
     public ResponseEntity<?> duyet(@PathVariable Integer id) {
         return repository.findById(id).map(a -> {
             TaiKhoan tk = taiKhoanRepository.findById(a.getTaiKhoan().getMatk()).orElse(null);
@@ -104,6 +107,7 @@ public class AnhChoDuyetController {
 
     // ADMIN/NV: từ chối -> đánh dấu và xóa file
     @PutMapping("/{id}/tu-choi")
+    @LogAction(action = "Từ chối ảnh", table = "anh_cho_duyet")
     public ResponseEntity<?> tuChoi(@PathVariable Integer id) {
         return repository.findById(id).map(a -> {
             a.setTrangthai("TU_CHOI");

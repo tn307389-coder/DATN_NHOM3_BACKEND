@@ -118,4 +118,19 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
         if (request.getAnh() != null) taiKhoan.setAnh(request.getAnh());
         return repository.save(taiKhoan);
     }
+
+    @Override
+    public boolean doiMatKhau(String tendangnhap, String matKhauCu, String matKhauMoi) {
+        TaiKhoan taiKhoan = repository.findByTendangnhap(tendangnhap)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản: " + tendangnhap));
+        if (matKhauCu == null || matKhauCu.isBlank() || matKhauMoi == null || matKhauMoi.isBlank()) {
+            throw new IllegalArgumentException("Mật khẩu cũ và mật khẩu mới không được để trống");
+        }
+        if (!passwordEncoder.matches(matKhauCu, taiKhoan.getMatkhau())) {
+            return false;
+        }
+        taiKhoan.setMatkhau(passwordEncoder.encode(matKhauMoi));
+        repository.save(taiKhoan);
+        return true;
+    }
 }

@@ -3,6 +3,7 @@ package org.example.datn_nhom3_backend.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.datn_nhom3_backend.entity.TaiKhoan;
 import org.example.datn_nhom3_backend.entity.VaiTro;
+import org.example.datn_nhom3_backend.repository.NhatKyHeThongRepository;
 import org.example.datn_nhom3_backend.repository.TaiKhoanRepository;
 import org.example.datn_nhom3_backend.repository.VaiTroRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,9 +37,12 @@ class AuthControllerIT {
     private VaiTroRepository vaiTroRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private NhatKyHeThongRepository nhatKyHeThongRepository;
 
     @BeforeEach
     void setUp() {
+        nhatKyHeThongRepository.deleteAll();
         taiKhoanRepository.deleteAll();
         VaiTro role = vaiTroRepository.findByMaVaiTro("ADMIN").orElseGet(() -> {
             VaiTro v = new VaiTro();

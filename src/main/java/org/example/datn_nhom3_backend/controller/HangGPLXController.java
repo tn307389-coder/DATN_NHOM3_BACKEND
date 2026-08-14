@@ -1,4 +1,5 @@
 package org.example.datn_nhom3_backend.controller;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.entity.HangGPLX;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -26,15 +27,18 @@ public class HangGPLXController {
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
+    @LogAction(action = "Xử lý hạng GPLX", table = "hang_gplx")
     @PostMapping
     public HangGPLX create(@RequestBody HangGPLX data) {
         return service.save(data);
     }
+    @LogAction(action = "Xử lý hạng GPLX", table = "hang_gplx")
     @PutMapping("/{id}")
     public HangGPLX update(@PathVariable Integer id, @RequestBody HangGPLX data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
+    @LogAction(action = "Xử lý hạng GPLX", table = "hang_gplx")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);

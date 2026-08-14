@@ -21,7 +21,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final String jwtPrefix;
 
     private static final List<String> PUBLIC_PATHS = List.of(
-        "/ws", "/api/login", "/api/logout",
+        "/ws", "/api/login", "/api/logout", "/api/refresh", "/api/quen-mat-khau",
         "/api/dang-ky-khoa-hoc/public", "/api/dang-ky-khoa-hoc/send-otp",
         "/api/dang-ky-khoa-hoc/verify-otp", "/api/dang-ky-khoa-hoc/tra-cuu",
         "/api/tin-tuc", "/api/danh-muc", "/api/khoa-hoc", "/api/hang-gplx", "/api/files",

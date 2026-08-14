@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.entity.TraGPLX;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.service.TraGPLXService;
@@ -33,11 +34,13 @@ public class TraGPLXController {
     }
 
     @PostMapping
+    @LogAction(action = "Xử lý trả GPLX", table = "tra_gplx")
     public TraGPLX save(@RequestBody TraGPLX traGPLX) {
         return service.save(traGPLX);
     }
 
     @PutMapping("/{id}")
+    @LogAction(action = "Xử lý trả GPLX", table = "tra_gplx")
     public TraGPLX update(@PathVariable Integer id,
                           @RequestBody TraGPLX traGPLX) {
         traGPLX.setMagplx(id);
@@ -45,6 +48,7 @@ public class TraGPLXController {
     }
 
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xử lý trả GPLX", table = "tra_gplx")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }

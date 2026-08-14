@@ -1,4 +1,5 @@
 package org.example.datn_nhom3_backend.controller;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.entity.KetQuaThi;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.service.KetQuaThiService;
@@ -24,15 +25,18 @@ public class KetQuaThiController {
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
+    @LogAction(action = "Xử lý kết quả thi", table = "ket_qua_thi")
     @PostMapping
     public KetQuaThi create(@RequestBody KetQuaThi data) {
         return service.save(data);
     }
+    @LogAction(action = "Xử lý kết quả thi", table = "ket_qua_thi")
     @PutMapping("/{id}")
     public KetQuaThi update(@PathVariable Integer id, @RequestBody KetQuaThi data) {
         data.setMakq(id);
         return service.save(data);
     }
+    @LogAction(action = "Xử lý kết quả thi", table = "ket_qua_thi")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);

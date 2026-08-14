@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.entity.HocVien;
 import org.example.datn_nhom3_backend.entity.ThanhToan;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -50,6 +51,7 @@ public class PaymentController {
 
     // Học viên đã đăng nhập khởi tạo thanh toán QR cho 1 đăng ký khóa học
     @PostMapping("/khoi-tao")
+    @LogAction(action = "Khởi tạo thanh toán", table = "thanh_toan")
     public Map<String, Object> khoiTao(@RequestBody Map<String, Integer> body) {
         Integer madk = body.get("madk");
         if (madk == null)
@@ -125,6 +127,7 @@ public class PaymentController {
 
     // Xác nhận thanh toán thành công (mô phỏng callback từ cổng thanh toán / ngân hàng)
     @PostMapping("/xac-nhan/{matt}")
+    @LogAction(action = "Xác nhận thanh toán", table = "thanh_toan")
     public Map<String, Object> xacNhan(@PathVariable Integer matt) {
         try {
             ThanhToan tt = paymentService.getPayment(matt);

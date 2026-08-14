@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.entity.ThiSatHach;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.service.ThiSatHachService;
@@ -33,11 +34,13 @@ public class ThiSatHachController {
     }
 
     @PostMapping
+    @LogAction(action = "Xử lý thi sát hạch", table = "thi_sat_hach")
     public ThiSatHach save(@RequestBody ThiSatHach thiSatHach) {
         return service.save(thiSatHach);
     }
 
     @PutMapping("/{id}")
+    @LogAction(action = "Xử lý thi sát hạch", table = "thi_sat_hach")
     public ThiSatHach update(@PathVariable Integer id,
                              @RequestBody ThiSatHach thiSatHach) {
         thiSatHach.setMathi(id);
@@ -45,6 +48,7 @@ public class ThiSatHachController {
     }
 
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xử lý thi sát hạch", table = "thi_sat_hach")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }

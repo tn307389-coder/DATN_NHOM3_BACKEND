@@ -1,4 +1,5 @@
 package org.example.datn_nhom3_backend.controller;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.entity.CaThi;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -26,15 +27,18 @@ public class CaThiController {
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
+    @LogAction(action = "Xử lý ca thi", table = "ca_thi")
     @PostMapping
     public CaThi create(@RequestBody CaThi data) {
         return service.save(data);
     }
+    @LogAction(action = "Xử lý ca thi", table = "ca_thi")
     @PutMapping("/{id}")
     public CaThi update(@PathVariable Integer id, @RequestBody CaThi data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
+    @LogAction(action = "Xử lý ca thi", table = "ca_thi")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);

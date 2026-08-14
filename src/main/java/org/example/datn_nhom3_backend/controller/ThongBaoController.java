@@ -1,4 +1,5 @@
 package org.example.datn_nhom3_backend.controller;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.entity.ThongBao;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -29,17 +30,20 @@ public class ThongBaoController {
                 .map(ResponseEntity::ok)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
+    @LogAction(action = "Xử lý thông báo", table = "thong_bao")
     @PostMapping
     public ThongBao create(@RequestBody ThongBao data) {
         ThongBao saved = service.save(data);
         realtimeService.notifyAdmins(saved.getTieude(), saved.getNoidung(), saved.getDoituong());
         return saved;
     }
+    @LogAction(action = "Xử lý thông báo", table = "thong_bao")
     @PutMapping("/{id}")
     public ThongBao update(@PathVariable Integer id, @RequestBody ThongBao data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
+    @LogAction(action = "Xử lý thông báo", table = "thong_bao")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);

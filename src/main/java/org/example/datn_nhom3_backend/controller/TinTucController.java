@@ -1,4 +1,5 @@
 package org.example.datn_nhom3_backend.controller;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.entity.TinTuc;
@@ -34,17 +35,20 @@ public class TinTucController {
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
 
+    @LogAction(action = "Xử lý tin tức", table = "tin_tuc")
     @PostMapping
     public TinTuc create(@RequestBody TinTuc data) {
         return service.save(data);
     }
 
+    @LogAction(action = "Xử lý tin tức", table = "tin_tuc")
     @PutMapping("/{id}")
     public TinTuc update(@PathVariable Integer id, @RequestBody TinTuc data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
 
+    @LogAction(action = "Xử lý tin tức", table = "tin_tuc")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);

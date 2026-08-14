@@ -1,4 +1,5 @@
 package org.example.datn_nhom3_backend.controller;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.dto.ThongKeHocVienGiaoVien;
 import org.example.datn_nhom3_backend.entity.*;
@@ -106,15 +107,18 @@ public class GiaoVienController {
     public ThongKeHocVienGiaoVien thongKeHocVien(@PathVariable("id") Integer id) {
         return service.thongKeHocVien(id);
     }
+    @LogAction(action = "Xử lý giáo viên", table = "giao_vien")
     @PostMapping
     public GiaoVien create(@RequestBody GiaoVien data) {
         return service.save(data);
     }
+    @LogAction(action = "Xử lý giáo viên", table = "giao_vien")
     @PutMapping("/{id}")
     public GiaoVien update(@PathVariable Integer id, @RequestBody GiaoVien data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
+    @LogAction(action = "Xử lý giáo viên", table = "giao_vien")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);

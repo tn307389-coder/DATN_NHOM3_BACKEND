@@ -24,21 +24,32 @@ public class JwtUtil {
     @Value("${jwt.expiration}")
     private long jwtExpiration;
 
+    @Value("${jwt.refresh-expiration}")
+    private long jwtRefreshExpiration;
+
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = Map.of(
                 "roles", userDetails.getAuthorities().stream()
                         .map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toList())
         );
-        return buildToken(claims, userDetails.getUsername());
+        return buildToken(claims, userDetails.getUsername(), jwtExpiration);
     }
 
-    private String buildToken(Map<String, Object> claims, String subject) {
+    public String generateRefreshToken(UserDetails userDetails) {
+        return buildToken(Map.of("type", "refresh"), userDetails.getUsername(), jwtRefreshExpiration);
+    }
+
+    public boolean isRefreshToken(String token) {
+        return "refresh".equals(parseClaims(token).get("type"));
+    }
+
+    private String buildToken(Map<String, Object> claims, String subject, long expiration) {
         return Jwts.builder()
                 .claims(claims)
                 .subject(subject)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + jwtExpiration))
+                .expiration(new Date(System.currentTimeMillis() + expiration))
                 .signWith(getSigningKey())
                 .compact();
     }

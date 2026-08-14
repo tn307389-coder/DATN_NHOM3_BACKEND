@@ -47,4 +47,10 @@ public class OtpService {
         var opt = repository.findTopByEmailAndVerifiedFalseOrderByCreatedAtDesc(email);
         return opt.isEmpty();
     }
+
+    // Kiểm tra email đã từng xác thực OTP thành công (bản ghi mới nhất là verified)
+    public boolean isOtpVerifiedForEmail(String email) {
+        var opt = repository.findTopByEmailOrderByCreatedAtDesc(email);
+        return opt.isPresent() && opt.get().isVerified();
+    }
 }

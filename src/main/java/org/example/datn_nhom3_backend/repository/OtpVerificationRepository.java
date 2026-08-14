@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface OtpVerificationRepository extends JpaRepository<OtpVerification, Integer> {
     Optional<OtpVerification> findTopByEmailAndVerifiedFalseOrderByCreatedAtDesc(String email);
+    Optional<OtpVerification> findTopByEmailOrderByCreatedAtDesc(String email);
     void deleteByEmail(String email);
 }

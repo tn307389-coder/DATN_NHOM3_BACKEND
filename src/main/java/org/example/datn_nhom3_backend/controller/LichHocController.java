@@ -1,4 +1,5 @@
 package org.example.datn_nhom3_backend.controller;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import jakarta.persistence.Id;
 import org.example.datn_nhom3_backend.entity.*;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -50,11 +51,13 @@ public class LichHocController {
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
 
+    @LogAction(action = "Xử lý lịch học", table = "lich_hoc")
     @PostMapping
     public LichHoc create(@RequestBody LichHoc data) {
         return service.save(data);
     }
 
+    @LogAction(action = "Xử lý lịch học", table = "lich_hoc")
     @PostMapping("/hang-loat")
     public ResponseEntity<Map<String, Object>> createHangLoat(@RequestBody BatchScheduleRequest request) {
         LopHoc lopHoc = lopHocRepository.findById(request.getMalop())
@@ -100,12 +103,14 @@ public class LichHocController {
         return ResponseEntity.ok(response);
     }
 
+    @LogAction(action = "Xử lý lịch học", table = "lich_hoc")
     @PutMapping("/{id}")
     public LichHoc update(@PathVariable Integer id, @RequestBody LichHoc data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
 
+    @LogAction(action = "Xử lý lịch học", table = "lich_hoc")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
