@@ -4,6 +4,15 @@
 -- =========================================================
 
 -- =========================================================
+-- DANH MỤC: bổ sung phương thức thanh toán QR_CODE
+-- =========================================================
+IF NOT EXISTS (SELECT 1 FROM danh_muc WHERE nhom = N'pt-thanh-toan' AND ma = N'QR_CODE')
+BEGIN
+    INSERT INTO danh_muc (nhom, ma, ten, thu_tu)
+    VALUES (N'pt-thanh-toan', N'QR_CODE', N'Quét mã QR', (SELECT ISNULL(MAX(thu_tu), 0) + 1 FROM danh_muc WHERE nhom = N'pt-thanh-toan'));
+END;
+
+-- =========================================================
 -- VAI TRÒ (4 vai trò)
 -- =========================================================
 IF NOT EXISTS (SELECT 1 FROM vai_tro WHERE ma_vai_tro = N'ADMIN')
@@ -209,6 +218,19 @@ END;
 -- =========================================================
 -- THANH TOÁN
 -- =========================================================
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='thanh_toan' AND COLUMN_NAME='qr_data')
+BEGIN
+    ALTER TABLE thanh_toan ADD qr_data NVARCHAR(500);
+END;
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='thanh_toan' AND COLUMN_NAME='transaction_ref')
+BEGIN
+    ALTER TABLE thanh_toan ADD transaction_ref NVARCHAR(100);
+END;
+IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='thanh_toan' AND COLUMN_NAME='payment_url')
+BEGIN
+    ALTER TABLE thanh_toan ADD payment_url NVARCHAR(500);
+END;
+
 IF NOT EXISTS (SELECT 1 FROM thanh_toan WHERE mahv = (SELECT mahv FROM hoc_vien WHERE hoten = N'Nguyễn Văn A') AND sotien = 15000000 AND ngaythanhtoan = '2026-01-11')
 BEGIN
     INSERT INTO thanh_toan (madk, mahv, sotien, ngaythanhtoan, phuongthuc, trangthai)

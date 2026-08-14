@@ -4,9 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
+import java.util.List;
 
 @Repository
 public interface ThanhToanRepository extends JpaRepository<ThanhToan, Integer> {
+    List<ThanhToan> findByHocVien_Mahv(Integer mahv);
+
     Long countByNgaythanhtoanBetween(LocalDate tu, LocalDate den);
 
     @Query("SELECT COALESCE(SUM(t.sotien), 0) FROM ThanhToan t")

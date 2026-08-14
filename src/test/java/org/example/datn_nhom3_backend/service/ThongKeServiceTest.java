@@ -31,6 +31,8 @@ class ThongKeServiceTest {
     private ThiSatHachRepository thiSatHachRepository;
     @Mock
     private LopHocRepository lopHocRepository;
+    @Mock
+    private DangKyKhoaHocRepository dangKyKhoaHocRepository;
 
     @InjectMocks
     private ThongKeServiceImpl thongKeService;
@@ -74,7 +76,7 @@ class ThongKeServiceTest {
 
     @Test
     void getTongDoanhThu_ShouldSumAllPayments() {
-        when(thanhToanRepository.findAll()).thenReturn(List.of(thanhToan1, thanhToan2));
+        when(thanhToanRepository.sumAllSotien()).thenReturn(3000000.0);
 
         Double result = thongKeService.getTongDoanhThu();
 
@@ -101,7 +103,7 @@ class ThongKeServiceTest {
 
     @Test
     void getDoanhThuTheoKhoangThoiGian_ShouldFilterCorrectly() {
-        when(thanhToanRepository.findAll()).thenReturn(List.of(thanhToan1, thanhToan2));
+        when(thanhToanRepository.sumSotienByNgaythanhtoanBetween(any(), any())).thenReturn(1000000.0);
 
         Double result = thongKeService.getDoanhThuTheoKhoangThoiGian(
                 LocalDate.now().minusDays(5), LocalDate.now().plusDays(1));

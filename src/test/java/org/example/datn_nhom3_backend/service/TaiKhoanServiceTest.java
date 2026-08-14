@@ -53,12 +53,12 @@ class TaiKhoanServiceTest {
 
     @Test
     void getAll_ShouldReturnList() {
-        when(repository.findAll()).thenReturn(java.util.List.of(taiKhoan));
+        when(repository.findAllWithVaiTro()).thenReturn(java.util.List.of(taiKhoan));
 
         var result = taiKhoanService.getAll();
 
         assertEquals(1, result.size());
-        verify(repository).findAll();
+        verify(repository).findAllWithVaiTro();
     }
 
     @Test

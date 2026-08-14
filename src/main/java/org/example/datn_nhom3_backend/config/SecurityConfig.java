@@ -91,6 +91,7 @@ public class SecurityConfig {
         WRITE_ROLES.put("thi-sat-hach", ang);
         WRITE_ROLES.put("hang-gplx", an);
         WRITE_ROLES.put("thong-bao", an);
+        WRITE_ROLES.put("tin-tuc", an);
     }
 
     @Bean
@@ -127,6 +128,19 @@ public class SecurityConfig {
                 auth.requestMatchers("/ws/**").permitAll();
                 auth.requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/api-docs/**", "/v3/api-docs/**").permitAll();
 
+                // Thanh toán QR: HV đã đăng nhập mới được khởi tạo / xem trạng thái / xác nhận
+                auth.requestMatchers(HttpMethod.POST, "/api/thanh-toan/khoi-tao").hasAnyRole("ADMIN", "NV", "HV");
+                auth.requestMatchers(HttpMethod.POST, "/api/thanh-toan/xac-nhan/**").hasAnyRole("ADMIN", "NV", "HV");
+                auth.requestMatchers(HttpMethod.GET, "/api/thanh-toan/*/trang-thai").hasAnyRole("ADMIN", "NV", "HV");
+                auth.requestMatchers(HttpMethod.GET, "/api/thanh-toan/*/qr").hasAnyRole("ADMIN", "NV", "HV");
+
+                // Dịch vụ học viên: lịch sử thanh toán + đăng ký học lại
+                auth.requestMatchers(HttpMethod.GET, "/api/thanh-toan/me").hasAnyRole("ADMIN", "NV", "HV");
+                auth.requestMatchers(HttpMethod.POST, "/api/dang-ky-khoa-hoc/me/dang-ky-lai").hasAnyRole("ADMIN", "NV", "HV");
+
+                // Email thông báo: chỉ Admin / Nhân viên mới được gửi
+                auth.requestMatchers("/api/email/**").hasAnyRole("ADMIN", "NV");
+
                 GET_ROLES.forEach((path, roles) ->
                     auth.requestMatchers(HttpMethod.GET, "/api/" + path + "/**").hasAnyRole(roles));
 
@@ -160,7 +174,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
-                "http://localhost:5173", "http://127.0.0.1:5173"));
+                "http://localhost:5173", "http://127.0.0.1:5173", "http://[::1]:5173"));
         configuration.setAllowedMethods(Arrays.asList(
                 "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept", "X-Requested-With"));

@@ -8,6 +8,7 @@ import org.example.datn_nhom3_backend.repository.TaiKhoanRepository;
 import org.example.datn_nhom3_backend.repository.VaiTroRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,9 @@ public class DataInitializer implements ApplicationRunner {
     private final DanhMucRepository danhMucRepository;
     private final PasswordEncoder passwordEncoder;
 
+    @Value("${app.seed.enabled:true}")
+    private boolean seedEnabled;
+
     public DataInitializer(TaiKhoanRepository taiKhoanRepository,
                            VaiTroRepository vaiTroRepository,
                            DanhMucRepository danhMucRepository,
@@ -35,6 +39,9 @@ public class DataInitializer implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
+        if (!seedEnabled) {
+            return;
+        }
         // Các mã vai trò chuẩn của hệ thống
         Map<String, String> roles = Map.of(
                 "ADMIN", "Quản trị viên",
@@ -90,7 +97,7 @@ public class DataInitializer implements ApplicationRunner {
             {"trang-thai-xe", "DANG_SU_DUNG", "Đang sử dụng"}, {"trang-thai-xe", "TRONG", "Trống"},
             {"trang-thai-xe", "BAO_TRI", "Bảo trì"},
             {"pt-thanh-toan", "TIEN_MAT", "Tiền mặt"}, {"pt-thanh-toan", "CHUYEN_KHOAN", "Chuyển khoản"},
-            {"pt-thanh-toan", "VI_DIEN_TU", "Ví điện tử"},
+            {"pt-thanh-toan", "VI_DIEN_TU", "Ví điện tử"}, {"pt-thanh-toan", "QR_CODE", "Quét mã QR"},
             {"trang-thai-tt", "DA_THANH_TOAN", "Đã thanh toán"}, {"trang-thai-tt", "CHUA_THANH_TOAN", "Chưa thanh toán"},
             {"trang-thai-tt", "THANH_TOAN_MOT_PHAN", "Thanh toán một phần"},
             {"trang-thai-dk", "CHO_DUYET", "Chờ duyệt"}, {"trang-thai-dk", "DA_DUYET", "Đã duyệt"},

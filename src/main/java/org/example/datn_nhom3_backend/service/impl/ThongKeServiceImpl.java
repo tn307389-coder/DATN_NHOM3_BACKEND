@@ -19,19 +19,22 @@ public class ThongKeServiceImpl implements ThongKeService {
     private final ThanhToanRepository thanhToanRepository;
     private final ThiSatHachRepository thiSatHachRepository;
     private final LopHocRepository lopHocRepository;
+    private final DangKyKhoaHocRepository dangKyKhoaHocRepository;
 
     public ThongKeServiceImpl(HocVienRepository hocVienRepository,
                               GiaoVienRepository giaoVienRepository,
                               KhoaHocRepository khoaHocRepository,
                               ThanhToanRepository thanhToanRepository,
                               ThiSatHachRepository thiSatHachRepository,
-                              LopHocRepository lopHocRepository) {
+                              LopHocRepository lopHocRepository,
+                              DangKyKhoaHocRepository dangKyKhoaHocRepository) {
         this.hocVienRepository = hocVienRepository;
         this.giaoVienRepository = giaoVienRepository;
         this.khoaHocRepository = khoaHocRepository;
         this.thanhToanRepository = thanhToanRepository;
         this.thiSatHachRepository = thiSatHachRepository;
         this.lopHocRepository = lopHocRepository;
+        this.dangKyKhoaHocRepository = dangKyKhoaHocRepository;
     }
 
     @Override
@@ -50,7 +53,7 @@ public class ThongKeServiceImpl implements ThongKeService {
         Double doanhThuThangNay = getDoanhThuTheoKhoangThoiGian(firstDayOfMonth, now);
         Double doanhThuThangTruoc = getDoanhThuTheoKhoangThoiGian(firstDayLastMonth, lastDayLastMonth);
 
-        Long soHocVienMoiThangNay = thanhToanRepository.countByNgaythanhtoanBetween(firstDayOfMonth, now);
+        Long soHocVienMoiThangNay = getSoHocVienDangKyTrongKhoang(firstDayOfMonth, now);
         if (soHocVienMoiThangNay == null) soHocVienMoiThangNay = 0L;
 
         Long soHocVienDauKy = tongHocVien;
@@ -90,7 +93,11 @@ public class ThongKeServiceImpl implements ThongKeService {
 
     @Override
     public Long getSoHocVienDangKyTrongKhoang(LocalDate tuNgay, LocalDate denNgay) {
-        return null;
+        return dangKyKhoaHocRepository.findAll().stream()
+                .filter(dk -> dk.getNgaydangky() != null
+                        && !dk.getNgaydangky().isBefore(tuNgay)
+                        && !dk.getNgaydangky().isAfter(denNgay))
+                .count();
     }
 
     @Override
@@ -138,8 +145,14 @@ public class ThongKeServiceImpl implements ThongKeService {
 
     @Override
     public List<DashboardStatsDto.HocVienTheoKhoa> getHocVienTheoKhoa() {
+        List<Object[]> counts = dangKyKhoaHocRepository.countGroupByKhoaHoc();
+        Map<Integer, Long> countByMakh = counts.stream()
+                .filter(row -> row[0] != null)
+                .collect(Collectors.toMap(
+                        row -> (Integer) row[0],
+                        row -> ((Number) row[1]).longValue()));
         return khoaHocRepository.findAll().stream().map(kh -> {
-            Long soLuong = 0L;
+            Long soLuong = countByMakh.getOrDefault(kh.getMakh(), 0L);
             return new DashboardStatsDto.HocVienTheoKhoa(
                     kh.getTenkhoahoc(),
                     soLuong

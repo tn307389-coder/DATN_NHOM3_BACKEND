@@ -24,7 +24,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         "/ws", "/api/login", "/api/logout",
         "/api/dang-ky-khoa-hoc/public", "/api/dang-ky-khoa-hoc/send-otp",
         "/api/dang-ky-khoa-hoc/verify-otp", "/api/dang-ky-khoa-hoc/tra-cuu",
-        "/api/tin-tuc", "/api/danh-muc", "/api/files"
+        "/api/tin-tuc", "/api/danh-muc", "/api/khoa-hoc", "/api/hang-gplx", "/api/files",
+        "/api-docs", "/swagger-ui", "/v3/api-docs"
     );
 
     public JwtAuthenticationFilter(JwtUtil jwtUtil, String jwtHeader, String jwtPrefix) {

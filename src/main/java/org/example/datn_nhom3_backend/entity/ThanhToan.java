@@ -18,6 +18,9 @@ public class ThanhToan {
     private Double sotien;
     private String phuongthuc;
     private String trangthai;
+    private String qrData;
+    private String transactionRef;
+    private String paymentUrl;
     public Integer getMatt() {
         return matt;
     }
@@ -59,5 +62,23 @@ public class ThanhToan {
     }
     public void setTrangthai(String trangthai) {
         this.trangthai = trangthai;
+    }
+    public String getQrData() {
+        return qrData;
+    }
+    public void setQrData(String qrData) {
+        this.qrData = qrData;
+    }
+    public String getTransactionRef() {
+        return transactionRef;
+    }
+    public void setTransactionRef(String transactionRef) {
+        this.transactionRef = transactionRef;
+    }
+    public String getPaymentUrl() {
+        return paymentUrl;
+    }
+    public void setPaymentUrl(String paymentUrl) {
+        this.paymentUrl = paymentUrl;
     }
 }

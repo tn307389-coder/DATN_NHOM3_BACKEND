@@ -1,11 +1,14 @@
 package org.example.datn_nhom3_backend.controller;
 
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.dto.TaiKhoanRequest;
 import org.example.datn_nhom3_backend.entity.TaiKhoan;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.service.TaiKhoanService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.validation.annotation.Validated;
+import jakarta.validation.Valid;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,6 +48,7 @@ public class TaiKhoanController {
     }
 
     @PutMapping("/me")
+    @LogAction(action = "Cập nhật hồ sơ cá nhân", table = "tai_khoan")
     public ResponseEntity<TaiKhoan> updateCurrentUser(@RequestBody TaiKhoanRequest request) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication != null ? authentication.getName() : null;
@@ -64,16 +68,19 @@ public class TaiKhoanController {
     }
 
     @PostMapping
-    public TaiKhoan create(@RequestBody TaiKhoanRequest request) {
+    @LogAction(action = "Tạo tài khoản", table = "tai_khoan")
+    public TaiKhoan create(@Valid @RequestBody TaiKhoanRequest request) {
         return service.createAccount(request);
     }
 
     @PutMapping("/{id}")
-    public TaiKhoan update(@PathVariable Integer id, @RequestBody TaiKhoanRequest request) {
+    @LogAction(action = "Cập nhật tài khoản", table = "tai_khoan")
+    public TaiKhoan update(@PathVariable Integer id, @Valid @RequestBody TaiKhoanRequest request) {
         return service.updateAccount(id, request);
     }
 
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xóa tài khoản", table = "tai_khoan")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();

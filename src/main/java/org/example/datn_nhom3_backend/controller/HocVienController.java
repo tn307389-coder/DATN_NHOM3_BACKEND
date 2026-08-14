@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.entity.*;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.repository.*;
@@ -111,6 +112,7 @@ public class HocVienController {
         List<KhoaHocCuaToiDto> result = list.stream().map(dk -> {
             KhoaHocCuaToiDto dto = new KhoaHocCuaToiDto();
             dto.setMadk(dk.getMadk());
+            dto.setMakh(dk.getKhoaHoc() != null ? dk.getKhoaHoc().getMakh() : null);
             dto.setTenKhoaHoc(dk.getKhoaHoc() != null ? dk.getKhoaHoc().getTenkhoahoc() : null);
             dto.setNgaydangky(dk.getNgaydangky());
             dto.setTrangthai(dk.getTrangthai());
@@ -130,15 +132,18 @@ public class HocVienController {
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
     @PostMapping
+    @LogAction(action = "Tạo học viên", table = "hoc_vien")
     public HocVien create(@RequestBody HocVien data) {
         return service.save(data);
     }
     @PutMapping("/{id}")
+    @LogAction(action = "Cập nhật học viên", table = "hoc_vien")
     public HocVien update(@PathVariable Integer id, @RequestBody HocVien data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xóa học viên", table = "hoc_vien")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }
@@ -214,12 +219,15 @@ class LichThiDto {
 
 class KhoaHocCuaToiDto {
     private Integer madk;
+    private Integer makh;
     private String tenKhoaHoc;
     private LocalDate ngaydangky;
     private String trangthai;
 
     public Integer getMadk() { return madk; }
     public void setMadk(Integer madk) { this.madk = madk; }
+    public Integer getMakh() { return makh; }
+    public void setMakh(Integer makh) { this.makh = makh; }
     public String getTenKhoaHoc() { return tenKhoaHoc; }
     public void setTenKhoaHoc(String tenKhoaHoc) { this.tenKhoaHoc = tenKhoaHoc; }
     public LocalDate getNgaydangky() { return ngaydangky; }

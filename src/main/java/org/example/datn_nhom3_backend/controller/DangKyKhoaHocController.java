@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.dto.DangKyKhoaHocPublicRequest;
 import org.example.datn_nhom3_backend.entity.DangKyKhoaHoc;
 import org.example.datn_nhom3_backend.entity.HangGPLX;
@@ -12,6 +13,7 @@ import org.example.datn_nhom3_backend.service.KhoaHocService;
 import org.example.datn_nhom3_backend.service.OtpService;
 import org.example.datn_nhom3_backend.repository.HangGPLXRepository;
 import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import java.lang.reflect.Field;
 import java.time.LocalDate;
@@ -29,13 +31,15 @@ public class DangKyKhoaHocController {
     private final org.example.datn_nhom3_backend.repository.DangKyKhoaHocRepository dkRepository;
     private final org.example.datn_nhom3_backend.repository.HocVienRepository hvRepository;
     private final HangGPLXRepository hangGPLXRepository;
+    private final org.example.datn_nhom3_backend.repository.TaiKhoanRepository taiKhoanRepository;
     public DangKyKhoaHocController(DangKyKhoaHocService service,
                                    HocVienService hocVienService,
                                    KhoaHocService khoaHocService,
                                    OtpService otpService,
                                    org.example.datn_nhom3_backend.repository.DangKyKhoaHocRepository dkRepository,
                                    org.example.datn_nhom3_backend.repository.HocVienRepository hvRepository,
-                                   HangGPLXRepository hangGPLXRepository) {
+                                   HangGPLXRepository hangGPLXRepository,
+                                   org.example.datn_nhom3_backend.repository.TaiKhoanRepository taiKhoanRepository) {
         this.service = service;
         this.hocVienService = hocVienService;
         this.khoaHocService = khoaHocService;
@@ -43,6 +47,7 @@ public class DangKyKhoaHocController {
         this.dkRepository = dkRepository;
         this.hvRepository = hvRepository;
         this.hangGPLXRepository = hangGPLXRepository;
+        this.taiKhoanRepository = taiKhoanRepository;
     }
     @GetMapping
     public List<DangKyKhoaHoc> getAll() { return service.getAll(); }
@@ -52,12 +57,15 @@ public class DangKyKhoaHocController {
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
     @PostMapping
+    @LogAction(action = "Tạo đăng ký khóa học", table = "dang_ky_khoa_hoc")
     public DangKyKhoaHoc create(@RequestBody DangKyKhoaHoc data) { return service.save(data); }
     @PutMapping("/{id}")
+    @LogAction(action = "Cập nhật đăng ký khóa học", table = "dang_ky_khoa_hoc")
     public DangKyKhoaHoc update(@PathVariable Integer id, @RequestBody DangKyKhoaHoc data) throws IllegalAccessException {
         setEntityId(data, id); return service.save(data);
     }
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xóa đăng ký khóa học", table = "dang_ky_khoa_hoc")
     public void delete(@PathVariable Integer id) { service.delete(id); }
 
     // Gửi OTP đến email
@@ -88,7 +96,7 @@ public class DangKyKhoaHocController {
 
     // Đăng ký khóa học công khai (đã xác thực OTP)
     @PostMapping("/public")
-    public Map<String, Object> publicRegister(@RequestBody DangKyKhoaHocPublicRequest req) {
+    public Map<String, Object> publicRegister(@Valid @RequestBody DangKyKhoaHocPublicRequest req) {
         if (req.getEmail() == null || req.getEmail().isBlank())
             return Map.of("success", false, "message", "Email không được để trống");
 
@@ -152,6 +160,46 @@ public class DangKyKhoaHocController {
             }
         }
         return Map.of("success", true, "data", result);
+    }
+
+    // Đăng ký học lại: tạo bản ghi đăng ký mới cho khóa học HV đã từng đăng ký
+    @PostMapping("/me/dang-ky-lai")
+    public Map<String, Object> dangKyLai(@RequestBody Map<String, Integer> body) {
+        Integer makh = body.get("makh");
+        if (makh == null)
+            return Map.of("success", false, "message", "Thiếu mã khóa học");
+
+        org.example.datn_nhom3_backend.entity.HocVien hv = getCurrentHocVienEntity();
+        boolean daDangKy = dkRepository.findAll().stream()
+                .anyMatch(dk -> dk.getHocVien() != null && dk.getHocVien().getMahv().equals(hv.getMahv())
+                        && dk.getKhoaHoc() != null && dk.getKhoaHoc().getMakh().equals(makh));
+        if (!daDangKy)
+            return Map.of("success", false, "message", "Bạn chưa từng đăng ký khóa học này");
+
+        org.example.datn_nhom3_backend.entity.KhoaHoc kh = khoaHocService.getById(makh)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy khóa học"));
+
+        org.example.datn_nhom3_backend.entity.DangKyKhoaHoc dk = new org.example.datn_nhom3_backend.entity.DangKyKhoaHoc();
+        dk.setHocVien(hv);
+        dk.setKhoaHoc(kh);
+        dk.setNgaydangky(LocalDate.now());
+        dk.setTrangthai("Chờ duyệt");
+        org.example.datn_nhom3_backend.entity.DangKyKhoaHoc saved = service.save(dk);
+
+        return Map.of("success", true, "message", "Đăng ký học lại thành công, chờ duyệt", "data", saved);
+    }
+
+    private org.example.datn_nhom3_backend.entity.HocVien getCurrentHocVienEntity() {
+        org.springframework.security.core.Authentication auth = org.springframework.security.core.context.SecurityContextHolder.getContext().getAuthentication();
+        String username = auth != null ? auth.getName() : null;
+        if (username == null || "anonymousUser".equals(username))
+            throw new ResourceNotFoundException("Chưa đăng nhập");
+        org.example.datn_nhom3_backend.entity.TaiKhoan tk = taiKhoanRepository.findByTendangnhap(username)
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy tài khoản"));
+        if (tk.getCccd() == null || tk.getCccd().isBlank())
+            throw new ResourceNotFoundException("Tài khoản chưa liên kết với học viên");
+        return hocVienService.findByCccd(tk.getCccd())
+                .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy hồ sơ học viên"));
     }
 
     private void setEntityId(DangKyKhoaHoc data, Integer id) throws IllegalAccessException {

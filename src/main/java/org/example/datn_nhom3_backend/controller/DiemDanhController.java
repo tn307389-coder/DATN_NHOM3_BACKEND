@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.dto.BatchDiemDanhRequest;
 import org.example.datn_nhom3_backend.entity.DiemDanh;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -33,20 +34,24 @@ public class DiemDanhController {
         return service.getByLichAndDate(malich, LocalDate.parse(ngay));
     }
     @PostMapping
+    @LogAction(action = "Tạo điểm danh", table = "diem_danh")
     public DiemDanh create(@RequestBody DiemDanh data) {
         return service.save(data);
     }
     @PostMapping("/batch")
+    @LogAction(action = "Lưu điểm danh hàng loạt", table = "diem_danh")
     public ResponseEntity<Map<String, Object>> saveBatch(@RequestBody BatchDiemDanhRequest request) {
         service.saveBatch(request);
         return ResponseEntity.ok(Map.of("success", true, "message", "Lưu điểm danh thành công"));
     }
     @PutMapping("/{id}")
+    @LogAction(action = "Cập nhật điểm danh", table = "diem_danh")
     public DiemDanh update(@PathVariable Integer id, @RequestBody DiemDanh data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xóa điểm danh", table = "diem_danh")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }

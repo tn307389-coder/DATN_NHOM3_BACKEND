@@ -1,5 +1,6 @@
 package org.example.datn_nhom3_backend.controller;
 import jakarta.persistence.Id;
+import org.example.datn_nhom3_backend.annotation.LogAction;
 import org.example.datn_nhom3_backend.dto.KhoaHocDto;
 import org.example.datn_nhom3_backend.entity.KhoaHoc;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
@@ -27,15 +28,18 @@ public class KhoaHocController {
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy dữ liệu với ID: " + id));
     }
     @PostMapping
+    @LogAction(action = "Tạo khóa học", table = "khoa_hoc")
     public KhoaHoc create(@RequestBody KhoaHoc data) {
         return service.save(data);
     }
     @PutMapping("/{id}")
+    @LogAction(action = "Cập nhật khóa học", table = "khoa_hoc")
     public KhoaHoc update(@PathVariable Integer id, @RequestBody KhoaHoc data) throws IllegalAccessException {
         setEntityId(data, id);
         return service.save(data);
     }
     @DeleteMapping("/{id}")
+    @LogAction(action = "Xóa khóa học", table = "khoa_hoc")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }
