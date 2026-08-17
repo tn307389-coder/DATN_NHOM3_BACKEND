@@ -26,4 +26,7 @@ public class HoSoHocVien {
     private String anhCanhCuoc;
     @Column(name = "file_ho_so")
     private String fileHoSo;
+
+    @Column(name = "da_chinh_sua")
+    private Boolean daChinhSua;
 }

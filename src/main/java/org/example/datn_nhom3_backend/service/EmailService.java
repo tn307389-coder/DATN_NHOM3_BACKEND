@@ -22,6 +22,51 @@ public class EmailService {
         mailSender.send(msg);
     }
 
+    public void sendRegistrationApproved(String to, String hoten, String tenKhoaHoc) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom("tn307389@gmail.com");
+        msg.setTo(to);
+        msg.setSubject("[DriveHub] Đăng ký học đã được duyệt");
+        String body = "Kính gửi " + hoten + ",\n\n"
+                + "Bạn đã được duyệt đăng ký học ở trung tâm đào tạo lái xe DriveHub"
+                + (tenKhoaHoc != null && !tenKhoaHoc.isBlank() ? " (khóa " + tenKhoaHoc + ")" : "")
+                + ".\n\n"
+                + "Trung tâm sẽ liên hệ với bạn trong thời gian sớm nhất để hoàn tất thủ tục nhập học.\n\n"
+                + "Trân trọng,\nDriveHub - Trung tâm đào tạo lái xe";
+        msg.setText(body);
+        mailSender.send(msg);
+    }
+
+    public void sendRegistrationRejected(String to, String hoten, String tenKhoaHoc) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom("tn307389@gmail.com");
+        msg.setTo(to);
+        msg.setSubject("[DriveHub] Thông báo đăng ký không hợp lệ");
+        String body = "Kính gửi " + hoten + ",\n\n"
+                + "Đăng ký khóa " + (tenKhoaHoc != null && !tenKhoaHoc.isBlank() ? tenKhoaHoc : "học")
+                + " của bạn không hợp lệ và đã bị từ chối.\n\n"
+                + "Vui lòng kiểm tra lại thông tin đăng ký hoặc liên hệ trung tâm đào tạo lái xe DriveHub để được hỗ trợ.\n\n"
+                + "Trân trọng,\nDriveHub - Trung tâm đào tạo lái xe";
+        msg.setText(body);
+        mailSender.send(msg);
+    }
+
+    public void sendAccountCreatedEmail(String to, String hoten, String tendangnhap, String matkhau) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom("tn307389@gmail.com");
+        msg.setTo(to);
+        msg.setSubject("[DriveHub] Tài khoản học viên của bạn");
+        String body = "Kính gửi " + hoten + ",\n\n"
+                + "Chúc mừng bạn đã đăng ký thành công tại trung tâm đào tạo lái xe DriveHub.\n\n"
+                + "Tài khoản học viên của bạn đã được cấp:\n"
+                + "  - Tên đăng nhập: " + tendangnhap + "\n"
+                + "  - Mật khẩu: " + matkhau + "\n\n"
+                + "Vui lòng đăng nhập hệ thống và đổi mật khẩu ngay sau lần đăng nhập đầu tiên.\n\n"
+                + "Trân trọng,\nDriveHub - Trung tâm đào tạo lái xe";
+        msg.setText(body);
+        mailSender.send(msg);
+    }
+
     public void sendSemesterNotification(String to, String hoten, String tenKhoaHoc, String hanChot, String noiDung) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom("tn307389@gmail.com");

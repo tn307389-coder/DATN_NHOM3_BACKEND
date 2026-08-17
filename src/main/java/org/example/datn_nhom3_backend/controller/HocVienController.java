@@ -142,6 +142,11 @@ public class HocVienController {
         setEntityId(data, id);
         return service.save(data);
     }
+    @GetMapping("/{id}/so-du-lieu-lien-quan")
+    public java.util.Map<String, Long> soDuLieuLienQuan(@PathVariable Integer id) {
+        return service.demDuLieuLienQuan(id);
+    }
+
     @DeleteMapping("/{id}")
     @LogAction(action = "Xóa học viên", table = "hoc_vien")
     public void delete(@PathVariable Integer id) {

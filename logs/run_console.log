@@ -1,0 +1,1832 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< org.example:DATN_NHOM3_BACKEND >-------------------
+[INFO] Building DATN_NHOM3_BACKEND 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.3.5:run (default-cli) > test-compile @ DATN_NHOM3_BACKEND >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ DATN_NHOM3_BACKEND ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ DATN_NHOM3_BACKEND ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ DATN_NHOM3_BACKEND ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ DATN_NHOM3_BACKEND ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 22 source files with javac [debug parameters release 23] to target\test-classes
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit
+WARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] 
+[INFO] <<< spring-boot:3.3.5:run (default-cli) < test-compile @ DATN_NHOM3_BACKEND <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.3.5:run (default-cli) @ DATN_NHOM3_BACKEND ---
+[INFO] Attaching agents: []
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-08-14 11:09:55 [main] INFO  o.e.d.DatnNhom3BackendApplication - Starting DatnNhom3BackendApplication using Java 25 with PID 24360 (D:\DATN_NHOM3\DATN_NHOM3_BACKEND\target\classes started by n2450 in D:\DATN_NHOM3\DATN_NHOM3_BACKEND)
+2026-08-14 11:09:55 [main] DEBUG o.e.d.DatnNhom3BackendApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-08-14 11:09:55 [main] INFO  o.e.d.DatnNhom3BackendApplication - No active profile set, falling back to 1 default profile: "default"
+2026-08-14 11:09:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-14 11:09:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 33 JPA repository interfaces.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.apache.tomcat.jni.Library in an unnamed module (file:/C:/Users/n2450/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.31/tomcat-embed-core-10.1.31.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+2026-08-14 11:09:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-08-14 11:09:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-14 11:09:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-08-14 11:09:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-08-14 11:09:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1120 ms
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+2026-08-14 11:09:57 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-14 11:09:57 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-08-14 11:09:57 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-14 11:09:57 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-14 11:09:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - DATN-HikariPool - Starting...
+2026-08-14 11:09:57 [main] INFO  com.zaxxer.hikari.pool.HikariPool - DATN-HikariPool - Added connection ConnectionID:1 ClientConnectionId: 3eddab3a-12f0-4c22-aa74-0190b54b2acb
+2026-08-14 11:09:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - DATN-HikariPool - Start completed.
+2026-08-14 11:09:57 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: SQLServerDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-14 11:09:58 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-14 11:09:58 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-14 11:09:58 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-14 11:09:59 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-14 11:09:59 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-08-14 11:10:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-08-14 11:10:00 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-08-14 11:10:00 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@72f9e4c7]]
+2026-08-14 11:10:00 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-08-14 11:10:00 [main] INFO  o.e.d.DatnNhom3BackendApplication - Started DatnNhom3BackendApplication in 4.654 seconds (process running for 4.928)
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [NV]
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [GV]
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [ADMIN]
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.ma_vai_tro=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [HV]
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        count_big(*) 
+    from
+        danh_muc dm1_0
+Hibernate: 
+    select
+        count_big(*) 
+    from
+        danh_muc dm1_0
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        count_big(*) 
+    from
+        tai_khoan tk1_0
+Hibernate: 
+    select
+        count_big(*) 
+    from
+        tai_khoan tk1_0
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id 
+    from
+        tai_khoan tk1_0
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [3]
+2026-08-14 11:10:00 [main] DEBUG org.hibernate.SQL - 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+Hibernate: 
+    select
+        vt1_0.id,
+        vt1_0.ma_vai_tro,
+        vt1_0.mo_ta,
+        vt1_0.ngay_cap_nhat,
+        vt1_0.ngay_tao,
+        vt1_0.ten_vai_tro,
+        vt1_0.trang_thai 
+    from
+        vai_tro vt1_0 
+    where
+        vt1_0.id=?
+2026-08-14 11:10:00 [main] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [4]
+2026-08-14 11:11:00 [MessageBroker-1] INFO  o.s.w.s.c.WebSocketMessageBrokerStats - WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-14 11:12:50 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-08-14 11:12:50 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-08-14 11:12:50 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.id=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.id=?
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    update
+        tai_khoan 
+    set
+        anh=?,
+        cccd=?,
+        email=?,
+        google_id=?,
+        ho_ten=?,
+        khoa_den=?,
+        lan_dang_nhap_cuoi=?,
+        mat_khau=?,
+        ngay_cap_nhat=?,
+        ngay_tao=?,
+        nguoi_tao_id=?,
+        so_dien_thoai=?,
+        so_lan_dang_nhap_sai=?,
+        ten_dang_nhap=?,
+        trang_thai=?,
+        vai_tro_id=? 
+    where
+        id=?
+Hibernate: 
+    update
+        tai_khoan 
+    set
+        anh=?,
+        cccd=?,
+        email=?,
+        google_id=?,
+        ho_ten=?,
+        khoa_den=?,
+        lan_dang_nhap_cuoi=?,
+        mat_khau=?,
+        ngay_cap_nhat=?,
+        ngay_tao=?,
+        nguoi_tao_id=?,
+        so_dien_thoai=?,
+        so_lan_dang_nhap_sai=?,
+        ten_dang_nhap=?,
+        trang_thai=?,
+        vai_tro_id=? 
+    where
+        id=?
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [null]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [null]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [admin@gmail.com]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [null]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [Nguyễn Quản Trị]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [null]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:TIMESTAMP) <- [2026-08-14T11:12:50.909049800]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [$2a$10$nxD46q.tYUfFaHkHEpEjzuUreXXM2kyw92S4zaVJ7Y.ENCwONACBC]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:TIMESTAMP) <- [null]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (10:TIMESTAMP) <- [2026-07-23T11:47:26.683333300]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (11:INTEGER) <- [null]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (12:VARCHAR) <- [0901112223]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (13:INTEGER) <- [0]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (14:VARCHAR) <- [admin]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (15:VARCHAR) <- [ACTIVE]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (16:INTEGER) <- [1]
+2026-08-14 11:12:50 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (17:INTEGER) <- [1]
+2026-08-14 11:13:10 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-08-14 11:13:10 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-08-14 11:13:10 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-08-14 11:13:10 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.id=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.id=?
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] DEBUG org.hibernate.SQL - 
+    update
+        tai_khoan 
+    set
+        anh=?,
+        cccd=?,
+        email=?,
+        google_id=?,
+        ho_ten=?,
+        khoa_den=?,
+        lan_dang_nhap_cuoi=?,
+        mat_khau=?,
+        ngay_cap_nhat=?,
+        ngay_tao=?,
+        nguoi_tao_id=?,
+        so_dien_thoai=?,
+        so_lan_dang_nhap_sai=?,
+        ten_dang_nhap=?,
+        trang_thai=?,
+        vai_tro_id=? 
+    where
+        id=?
+Hibernate: 
+    update
+        tai_khoan 
+    set
+        anh=?,
+        cccd=?,
+        email=?,
+        google_id=?,
+        ho_ten=?,
+        khoa_den=?,
+        lan_dang_nhap_cuoi=?,
+        mat_khau=?,
+        ngay_cap_nhat=?,
+        ngay_tao=?,
+        nguoi_tao_id=?,
+        so_dien_thoai=?,
+        so_lan_dang_nhap_sai=?,
+        ten_dang_nhap=?,
+        trang_thai=?,
+        vai_tro_id=? 
+    where
+        id=?
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [null]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [null]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [admin@gmail.com]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [null]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:VARCHAR) <- [Nguyễn Quản Trị]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:TIMESTAMP) <- [null]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:TIMESTAMP) <- [2026-08-14T11:13:11.045780]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (8:VARCHAR) <- [$2a$10$nxD46q.tYUfFaHkHEpEjzuUreXXM2kyw92S4zaVJ7Y.ENCwONACBC]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (9:TIMESTAMP) <- [null]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (10:TIMESTAMP) <- [2026-07-23T11:47:26.683333300]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (11:INTEGER) <- [null]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (12:VARCHAR) <- [0901112223]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (13:INTEGER) <- [0]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (14:VARCHAR) <- [admin]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (15:VARCHAR) <- [ACTIVE]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (16:INTEGER) <- [1]
+2026-08-14 11:13:11 [http-nio-8081-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (17:INTEGER) <- [1]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(dkkh1_0.madk) 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    where
+        dkkh1_0.mahv=?
+Hibernate: 
+    select
+        count_big(dkkh1_0.madk) 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    where
+        dkkh1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(tt1_0.matt) 
+    from
+        thanh_toan tt1_0 
+    where
+        tt1_0.mahv=?
+Hibernate: 
+    select
+        count_big(tt1_0.matt) 
+    from
+        thanh_toan tt1_0 
+    where
+        tt1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(hshv1_0.id) 
+    from
+        ho_so_hoc_vien hshv1_0 
+    where
+        hshv1_0.mahv=?
+Hibernate: 
+    select
+        count_big(hshv1_0.id) 
+    from
+        ho_so_hoc_vien hshv1_0 
+    where
+        hshv1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(dd1_0.madd) 
+    from
+        diem_danh dd1_0 
+    where
+        dd1_0.mahv=?
+Hibernate: 
+    select
+        count_big(dd1_0.madd) 
+    from
+        diem_danh dd1_0 
+    where
+        dd1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(pc1_0.id) 
+    from
+        phan_cong pc1_0 
+    where
+        pc1_0.mahv=?
+Hibernate: 
+    select
+        count_big(pc1_0.id) 
+    from
+        phan_cong pc1_0 
+    where
+        pc1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(bdtx1_0.id) 
+    from
+        bang_diem_thuong_xuyen bdtx1_0 
+    where
+        bdtx1_0.mahv=?
+Hibernate: 
+    select
+        count_big(bdtx1_0.id) 
+    from
+        bang_diem_thuong_xuyen bdtx1_0 
+    where
+        bdtx1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(tsh1_0.mathi) 
+    from
+        thi_sat_hach tsh1_0 
+    where
+        tsh1_0.mahv=?
+Hibernate: 
+    select
+        count_big(tsh1_0.mathi) 
+    from
+        thi_sat_hach tsh1_0 
+    where
+        tsh1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(kqt1_0.id) 
+    from
+        ket_qua_thi kqt1_0 
+    where
+        kqt1_0.mahv=?
+Hibernate: 
+    select
+        count_big(kqt1_0.id) 
+    from
+        ket_qua_thi kqt1_0 
+    where
+        kqt1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count_big(tg1_0.id) 
+    from
+        tra_gplx tg1_0 
+    where
+        tg1_0.mahv=?
+Hibernate: 
+    select
+        count_big(tg1_0.id) 
+    from
+        tra_gplx tg1_0 
+    where
+        tg1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete tt1_0 
+    from
+        thanh_toan tt1_0 
+    where
+        tt1_0.mahv=?
+Hibernate: 
+    delete tt1_0 
+    from
+        thanh_toan tt1_0 
+    where
+        tt1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete tg1_0 
+    from
+        tra_gplx tg1_0 
+    where
+        tg1_0.mahv=?
+Hibernate: 
+    delete tg1_0 
+    from
+        tra_gplx tg1_0 
+    where
+        tg1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete kqt1_0 
+    from
+        ket_qua_thi kqt1_0 
+    where
+        kqt1_0.mahv=?
+Hibernate: 
+    delete kqt1_0 
+    from
+        ket_qua_thi kqt1_0 
+    where
+        kqt1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete tsh1_0 
+    from
+        thi_sat_hach tsh1_0 
+    where
+        tsh1_0.mahv=?
+Hibernate: 
+    delete tsh1_0 
+    from
+        thi_sat_hach tsh1_0 
+    where
+        tsh1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete dkkh1_0 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    where
+        dkkh1_0.mahv=?
+Hibernate: 
+    delete dkkh1_0 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    where
+        dkkh1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete dd1_0 
+    from
+        diem_danh dd1_0 
+    where
+        dd1_0.mahv=?
+Hibernate: 
+    delete dd1_0 
+    from
+        diem_danh dd1_0 
+    where
+        dd1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete pc1_0 
+    from
+        phan_cong pc1_0 
+    where
+        pc1_0.mahv=?
+Hibernate: 
+    delete pc1_0 
+    from
+        phan_cong pc1_0 
+    where
+        pc1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete bdtx1_0 
+    from
+        bang_diem_thuong_xuyen bdtx1_0 
+    where
+        bdtx1_0.mahv=?
+Hibernate: 
+    delete bdtx1_0 
+    from
+        bang_diem_thuong_xuyen bdtx1_0 
+    where
+        bdtx1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete hshv1_0 
+    from
+        ho_so_hoc_vien hshv1_0 
+    where
+        hshv1_0.mahv=?
+Hibernate: 
+    delete hshv1_0 
+    from
+        ho_so_hoc_vien hshv1_0 
+    where
+        hshv1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+Hibernate: 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        hoc_vien 
+    where
+        mahv=?
+Hibernate: 
+    delete 
+    from
+        hoc_vien 
+    where
+        mahv=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [9]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+Hibernate: 
+    select
+        tk1_0.id,
+        tk1_0.anh,
+        tk1_0.cccd,
+        tk1_0.email,
+        tk1_0.google_id,
+        tk1_0.ho_ten,
+        tk1_0.khoa_den,
+        tk1_0.lan_dang_nhap_cuoi,
+        tk1_0.mat_khau,
+        tk1_0.ngay_cap_nhat,
+        tk1_0.ngay_tao,
+        tk1_0.nguoi_tao_id,
+        tk1_0.so_dien_thoai,
+        tk1_0.so_lan_dang_nhap_sai,
+        tk1_0.ten_dang_nhap,
+        tk1_0.trang_thai,
+        tk1_0.vai_tro_id,
+        v1_0.id,
+        v1_0.ma_vai_tro,
+        v1_0.mo_ta,
+        v1_0.ngay_cap_nhat,
+        v1_0.ngay_tao,
+        v1_0.ten_vai_tro,
+        v1_0.trang_thai 
+    from
+        tai_khoan tk1_0 
+    left join
+        vai_tro v1_0 
+            on v1_0.id=tk1_0.vai_tro_id 
+    where
+        tk1_0.ten_dang_nhap=?
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [admin]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        nhat_ky_he_thong
+        (chi_tiet, hanh_dong, ip, tai_khoan_id, ngay_thuc_hien) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        nhat_ky_he_thong
+        (chi_tiet, hanh_dong, ip, tai_khoan_id, ngay_thuc_hien) 
+    values
+        (?, ?, ?, ?, ?)
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Bảng: hoc_vien | Phương thức: delete]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [Xóa học viên]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [0:0:0:0:0:0:0:1]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:INTEGER) <- [1]
+2026-08-14 11:13:11 [http-nio-8081-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [2026-08-14T11:13:11.273792700]
+2026-08-14 11:19:22 [http-nio-8081-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0
+2026-08-14 11:19:22 [http-nio-8081-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0
+Hibernate: 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0
+Hibernate: 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0
+2026-08-14 11:19:22 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth
+Hibernate: 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth
+2026-08-14 11:19:22 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        dkkh1_0.makh,
+        count_big(dkkh1_0.madk) 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    group by
+        dkkh1_0.makh
+Hibernate: 
+    select
+        dkkh1_0.makh,
+        count_big(dkkh1_0.madk) 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    group by
+        dkkh1_0.makh
+2026-08-14 11:19:22 [http-nio-8081-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0
+Hibernate: 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0
+2026-08-14 11:19:22 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth
+Hibernate: 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth
+2026-08-14 11:19:22 [http-nio-8081-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        dkkh1_0.makh,
+        count_big(dkkh1_0.madk) 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    group by
+        dkkh1_0.makh
+Hibernate: 
+    select
+        dkkh1_0.makh,
+        count_big(dkkh1_0.madk) 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    group by
+        dkkh1_0.makh
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        dkkh1_0.madk,
+        dkkh1_0.hang_gplx_id,
+        dkkh1_0.mahv,
+        dkkh1_0.makh,
+        dkkh1_0.ngaydangky,
+        dkkh1_0.trangthai 
+    from
+        dang_ky_khoa_hoc dkkh1_0
+Hibernate: 
+    select
+        dkkh1_0.madk,
+        dkkh1_0.hang_gplx_id,
+        dkkh1_0.mahv,
+        dkkh1_0.makh,
+        dkkh1_0.ngaydangky,
+        dkkh1_0.trangthai 
+    from
+        dang_ky_khoa_hoc dkkh1_0
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0 
+    where
+        hg1_0.id=?
+Hibernate: 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0 
+    where
+        hg1_0.id=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+Hibernate: 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        kh1_0.makh=?
+Hibernate: 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        kh1_0.makh=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [3]
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0 
+    where
+        hg1_0.id=?
+Hibernate: 
+    select
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang 
+    from
+        hang_gplx hg1_0 
+    where
+        hg1_0.id=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [4]
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+Hibernate: 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        kh1_0.makh=?
+Hibernate: 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        kh1_0.makh=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+Hibernate: 
+    select
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai 
+    from
+        hoc_vien hv1_0 
+    where
+        hv1_0.mahv=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [3]
+2026-08-14 11:19:22 [http-nio-8081-exec-10] DEBUG org.hibernate.SQL - 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        kh1_0.makh=?
+Hibernate: 
+    select
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai 
+    from
+        khoa_hoc kh1_0 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        kh1_0.makh=?
+2026-08-14 11:19:22 [http-nio-8081-exec-10] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2026-08-14 11:19:22 [http-nio-8081-exec-7] INFO  o.a.tomcat.util.http.parser.Cookie - A cookie header was received [g_state={"i_l":0,"i_ll":1786677904999,"i_e":{"enable_itp_optimization":24},"i_et":1786677904999,"i_b":"/jN0vhkqrwDAvsPr4h/XNjvGMMGlAUatEI6+Dt7Ohes"}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2026-08-14 11:19:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        dkkh1_0.madk,
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang,
+        dkkh1_0.mahv,
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai,
+        dkkh1_0.makh,
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai,
+        dkkh1_0.ngaydangky,
+        dkkh1_0.trangthai 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    left join
+        hang_gplx hg1_0 
+            on hg1_0.id=dkkh1_0.hang_gplx_id 
+    join
+        hoc_vien hv1_0 
+            on hv1_0.mahv=dkkh1_0.mahv 
+    join
+        khoa_hoc kh1_0 
+            on kh1_0.makh=dkkh1_0.makh 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        dkkh1_0.madk=?
+Hibernate: 
+    select
+        dkkh1_0.madk,
+        hg1_0.id,
+        hg1_0.ma_hang,
+        hg1_0.mo_ta,
+        hg1_0.ten_hang,
+        dkkh1_0.mahv,
+        hv1_0.mahv,
+        hv1_0.cccd,
+        hv1_0.diachi,
+        hv1_0.email,
+        hv1_0.gioitinh,
+        hv1_0.hoten,
+        hv1_0.ngaydangky,
+        hv1_0.ngaysinh,
+        hv1_0.sodienthoai,
+        dkkh1_0.makh,
+        kh1_0.makh,
+        cth1_0.macth,
+        cth1_0.hangbang,
+        cth1_0.hocphi,
+        cth1_0.sobuoilythuyet,
+        cth1_0.sobuoithuchanh,
+        cth1_0.tenchuongtrinh,
+        kh1_0.ngaybatdau,
+        kh1_0.ngayketthuc,
+        kh1_0.tenkhoahoc,
+        kh1_0.trangthai,
+        dkkh1_0.ngaydangky,
+        dkkh1_0.trangthai 
+    from
+        dang_ky_khoa_hoc dkkh1_0 
+    left join
+        hang_gplx hg1_0 
+            on hg1_0.id=dkkh1_0.hang_gplx_id 
+    join
+        hoc_vien hv1_0 
+            on hv1_0.mahv=dkkh1_0.mahv 
+    join
+        khoa_hoc kh1_0 
+            on kh1_0.makh=dkkh1_0.makh 
+    left join
+        chuong_trinh_hoc cth1_0 
+            on cth1_0.macth=kh1_0.macth 
+    where
+        dkkh1_0.madk=?
+2026-08-14 11:19:26 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:19:26 [http-nio-8081-exec-1] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        dang_ky_khoa_hoc 
+    where
+        madk=?
+Hibernate: 
+    delete 
+    from
+        dang_ky_khoa_hoc 
+    where
+        madk=?
+2026-08-14 11:19:26 [http-nio-8081-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [1]
+2026-08-14 11:19:26 [http-nio-8081-exec-1] INFO  org.hibernate.orm.jdbc.batch - HHH100503: On release of batch it still contained JDBC statements
+2026-08-14 11:19:26 [http-nio-8081-exec-1] ERROR org.hibernate.orm.jdbc.batch - HHH100501: Exception executing batch [java.sql.BatchUpdateException: The DELETE statement conflicted with the REFERENCE constraint "FK_TT_DKKH". The conflict occurred in database "duantotnghiep01", table "dbo.thanh_toan", column 'madk'.], SQL: delete from dang_ky_khoa_hoc where madk=?
+2026-08-14 11:19:26 [http-nio-8081-exec-1] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 547, SQLState: 23000
+2026-08-14 11:19:26 [http-nio-8081-exec-1] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - The DELETE statement conflicted with the REFERENCE constraint "FK_TT_DKKH". The conflict occurred in database "duantotnghiep01", table "dbo.thanh_toan", column 'madk'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10:48 min
+[INFO] Finished at: 2026-08-14T11:20:39+07:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.3.5:run (default-cli) on project DATN_NHOM3_BACKEND: Process terminated with exit code: -1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

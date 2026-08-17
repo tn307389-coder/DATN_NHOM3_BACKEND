@@ -1,6 +1,7 @@
 package org.example.datn_nhom3_backend.service;
 
 import org.example.datn_nhom3_backend.dto.TaiKhoanRequest;
+import org.example.datn_nhom3_backend.entity.HocVien;
 import org.example.datn_nhom3_backend.entity.TaiKhoan;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,4 +33,7 @@ public interface TaiKhoanService {
     TaiKhoan updateCurrentUser(String tendangnhap, TaiKhoanRequest request);
 
     boolean doiMatKhau(String tendangnhap, String matKhauCu, String matKhauMoi);
+
+    // Tự động cấp tài khoản học viên (vai trò HV) khi có hồ sơ học viên; trả null nếu đã có tài khoản.
+    TaiKhoan capTaiKhoanHocVien(HocVien hocVien);
 }

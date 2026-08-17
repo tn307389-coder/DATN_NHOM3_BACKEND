@@ -119,6 +119,9 @@ public class SecurityConfig {
                 auth.requestMatchers(HttpMethod.GET, "/api/tai-khoan/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.PUT, "/api/tai-khoan/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.PUT, "/api/tai-khoan/me/doi-mat-khau").hasAnyRole("ADMIN", "NV", "GV", "HV");
+                // Học viên tự cập nhật hồ sơ học viên của mình (chỉ 1 lần)
+                auth.requestMatchers(HttpMethod.PUT, "/api/ho-so-hoc-vien/me").hasAnyRole("ADMIN", "NV", "GV", "HV");
+                auth.requestMatchers(HttpMethod.POST, "/api/upload/ho-so").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.GET, "/api/dashboard/**").hasAnyRole("ADMIN", "NV");
                 auth.requestMatchers(HttpMethod.POST, "/api/upload/avatar").hasAnyRole("ADMIN", "NV", "GV", "HV");
                 auth.requestMatchers(HttpMethod.POST, "/api/upload/tin-tuc").hasAnyRole("ADMIN", "NV");

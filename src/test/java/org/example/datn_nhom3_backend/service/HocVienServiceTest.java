@@ -1,8 +1,16 @@
 package org.example.datn_nhom3_backend.service;
 
 import org.example.datn_nhom3_backend.entity.HocVien;
+import org.example.datn_nhom3_backend.repository.BangDiemThuongXuyenRepository;
+import org.example.datn_nhom3_backend.repository.DangKyKhoaHocRepository;
+import org.example.datn_nhom3_backend.repository.DiemDanhRepository;
+import org.example.datn_nhom3_backend.repository.HoSoHocVienRepository;
 import org.example.datn_nhom3_backend.repository.HocVienRepository;
-import org.example.datn_nhom3_backend.service.HocVienService;
+import org.example.datn_nhom3_backend.repository.KetQuaThiRepository;
+import org.example.datn_nhom3_backend.repository.PhanCongRepository;
+import org.example.datn_nhom3_backend.repository.ThanhToanRepository;
+import org.example.datn_nhom3_backend.repository.ThiSatHachRepository;
+import org.example.datn_nhom3_backend.repository.TraGPLXRepository;
 import org.example.datn_nhom3_backend.service.impl.HocVienServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,6 +29,24 @@ class HocVienServiceTest {
 
     @Mock
     private HocVienRepository repository;
+    @Mock
+    private ThanhToanRepository thanhToanRepository;
+    @Mock
+    private TraGPLXRepository traGPLXRepository;
+    @Mock
+    private KetQuaThiRepository ketQuaThiRepository;
+    @Mock
+    private ThiSatHachRepository thiSatHachRepository;
+    @Mock
+    private DangKyKhoaHocRepository dangKyKhoaHocRepository;
+    @Mock
+    private DiemDanhRepository diemDanhRepository;
+    @Mock
+    private PhanCongRepository phanCongRepository;
+    @Mock
+    private BangDiemThuongXuyenRepository bangDiemThuongXuyenRepository;
+    @Mock
+    private HoSoHocVienRepository hoSoHocVienRepository;
 
     @InjectMocks
     private HocVienServiceImpl hocVienService;
@@ -106,9 +132,29 @@ class HocVienServiceTest {
     }
 
     @Test
-    void delete_ShouldCallRepository() {
+    void delete_ShouldCascadeDeleteRelatedData() {
         hocVienService.delete(1);
 
+        verify(thanhToanRepository).deleteByHocVien_Mahv(1);
+        verify(traGPLXRepository).deleteByHocVien_Mahv(1);
+        verify(ketQuaThiRepository).deleteByHocVien_Mahv(1);
+        verify(thiSatHachRepository).deleteByHocVien_Mahv(1);
+        verify(dangKyKhoaHocRepository).deleteByHocVien_Mahv(1);
+        verify(diemDanhRepository).deleteByHocVien_Mahv(1);
+        verify(phanCongRepository).deleteByHocVien_Mahv(1);
+        verify(bangDiemThuongXuyenRepository).deleteByHocVien_Mahv(1);
+        verify(hoSoHocVienRepository).deleteByHocVien_Mahv(1);
         verify(repository).deleteById(1);
+    }
+
+    @Test
+    void demDuLieuLienQuan_ShouldReturnCounts() {
+        when(dangKyKhoaHocRepository.countByHocVien_Mahv(1)).thenReturn(2L);
+        when(thanhToanRepository.countByHocVien_Mahv(1)).thenReturn(3L);
+
+        var counts = hocVienService.demDuLieuLienQuan(1);
+
+        assertEquals(2L, counts.get("dangKyKhoaHoc"));
+        assertEquals(3L, counts.get("thanhToan"));
     }
 }

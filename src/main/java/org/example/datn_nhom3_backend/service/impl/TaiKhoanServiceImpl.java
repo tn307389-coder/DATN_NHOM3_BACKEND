@@ -1,34 +1,46 @@
 package org.example.datn_nhom3_backend.service.impl;
 
 import org.example.datn_nhom3_backend.dto.TaiKhoanRequest;
+import org.example.datn_nhom3_backend.entity.HocVien;
 import org.example.datn_nhom3_backend.entity.TaiKhoan;
 import org.example.datn_nhom3_backend.entity.VaiTro;
 import org.example.datn_nhom3_backend.exception.ResourceNotFoundException;
 import org.example.datn_nhom3_backend.repository.TaiKhoanRepository;
 import org.example.datn_nhom3_backend.repository.VaiTroRepository;
+import org.example.datn_nhom3_backend.service.EmailService;
 import org.example.datn_nhom3_backend.service.TaiKhoanService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class TaiKhoanServiceImpl implements TaiKhoanService {
 
+    private static final Logger log = LoggerFactory.getLogger(TaiKhoanServiceImpl.class);
+    private static final SecureRandom RANDOM = new SecureRandom();
+    private static final String PASSWORD_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789";
+
     private final TaiKhoanRepository repository;
     private final VaiTroRepository vaiTroRepository;
     private final PasswordEncoder passwordEncoder;
+    private final EmailService emailService;
 
     public TaiKhoanServiceImpl(TaiKhoanRepository repository,
                                VaiTroRepository vaiTroRepository,
-                               PasswordEncoder passwordEncoder) {
+                               PasswordEncoder passwordEncoder,
+                               EmailService emailService) {
         this.repository = repository;
         this.vaiTroRepository = vaiTroRepository;
         this.passwordEncoder = passwordEncoder;
+        this.emailService = emailService;
     }
 
     @Override
@@ -132,5 +144,67 @@ public class TaiKhoanServiceImpl implements TaiKhoanService {
         taiKhoan.setMatkhau(passwordEncoder.encode(matKhauMoi));
         repository.save(taiKhoan);
         return true;
+    }
+
+    @Override
+    public TaiKhoan capTaiKhoanHocVien(HocVien hocVien) {
+        if (hocVien == null || hocVien.getCccd() == null || hocVien.getCccd().isBlank()) {
+            log.warn("Không cấp tài khoản học viên: thiếu CCCD");
+            return null;
+        }
+        // Đã có tài khoản theo CCCD hoặc email -> không cấp trùng
+        if (repository.findByCccd(hocVien.getCccd()).isPresent()) {
+            return null;
+        }
+        if (hocVien.getEmail() != null && !hocVien.getEmail().isBlank()
+                && repository.findByEmail(hocVien.getEmail()).isPresent()) {
+            return null;
+        }
+        VaiTro vaiTro = vaiTroRepository.findByMaVaiTro("HV").orElse(null);
+        if (vaiTro == null) {
+            log.warn("Không cấp tài khoản học viên: không tìm thấy vai trò HV");
+            return null;
+        }
+
+        String matKhau = taoMatKhauNgauNhien();
+        String tenDangNhap = taoTenDangNhap(hocVien.getCccd());
+        TaiKhoan taiKhoan = new TaiKhoan();
+        taiKhoan.setTendangnhap(tenDangNhap);
+        taiKhoan.setMatkhau(passwordEncoder.encode(matKhau));
+        taiKhoan.setHoten(hocVien.getHoten());
+        taiKhoan.setEmail(hocVien.getEmail());
+        taiKhoan.setSoDienThoai(hocVien.getSodienthoai());
+        taiKhoan.setCccd(hocVien.getCccd());
+        taiKhoan.setVaitro(vaiTro);
+        taiKhoan.setTrangthai("ACTIVE");
+        TaiKhoan saved = repository.save(taiKhoan);
+
+        if (hocVien.getEmail() != null && !hocVien.getEmail().isBlank()) {
+            try {
+                emailService.sendAccountCreatedEmail(hocVien.getEmail(), hocVien.getHoten(), tenDangNhap, matKhau);
+            } catch (Exception e) {
+                log.warn("Gửi email cấp tài khoản thất bại cho {}: {}", hocVien.getEmail(), e.getMessage());
+            }
+        }
+        return saved;
+    }
+
+    private String taoMatKhauNgauNhien() {
+        StringBuilder sb = new StringBuilder(8);
+        for (int i = 0; i < 8; i++) {
+            sb.append(PASSWORD_CHARS.charAt(RANDOM.nextInt(PASSWORD_CHARS.length())));
+        }
+        return sb.toString();
+    }
+
+    private String taoTenDangNhap(String cccd) {
+        String base = "hocvien" + cccd;
+        String candidate = base;
+        int i = 1;
+        while (repository.findByTendangnhap(candidate).isPresent()) {
+            candidate = base + i;
+            i++;
+        }
+        return candidate;
     }
 }

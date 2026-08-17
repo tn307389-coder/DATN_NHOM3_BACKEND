@@ -47,4 +47,10 @@ public class UploadController {
         String fileName = fileStorageService.store(file);
         return Map.of("success", true, "url", "/api/files/" + fileName);
     }
+
+    @PostMapping("/ho-so")
+    public Map<String, Object> uploadHoSoFile(@RequestParam("file") MultipartFile file) {
+        String fileName = fileStorageService.store(file);
+        return Map.of("success", true, "url", "/api/files/" + fileName);
+    }
 }

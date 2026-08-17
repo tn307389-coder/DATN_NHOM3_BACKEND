@@ -24,4 +24,7 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan,Integer>, Jpa
     @Query("SELECT t FROM TaiKhoan t LEFT JOIN FETCH t.vaitro WHERE t.googleId = :googleId")
     Optional<TaiKhoan> findByGoogleId(String googleId);
 
+    @Query("SELECT t FROM TaiKhoan t LEFT JOIN FETCH t.vaitro WHERE t.cccd = :cccd")
+    Optional<TaiKhoan> findByCccd(String cccd);
+
 }
