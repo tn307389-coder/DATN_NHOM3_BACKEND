@@ -38,7 +38,10 @@ public class PaymentService {
         DangKyKhoaHoc dk = dangKyKhoaHocRepository.findById(madk)
                 .orElseThrow(() -> new ResourceNotFoundException("Không tìm thấy đăng ký khóa học"));
 
-        if (hocVien != null && !dk.getHocVien().getMahv().equals(hocVien.getMahv())) {
+        if (hocVien == null) {
+            throw new ResourceNotFoundException("Thiếu thông tin học viên");
+        }
+        if (!dk.getHocVien().getMahv().equals(hocVien.getMahv())) {
             throw new ResourceNotFoundException("Đăng ký khóa học không thuộc về học viên hiện tại");
         }
 

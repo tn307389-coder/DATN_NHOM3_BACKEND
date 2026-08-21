@@ -66,12 +66,8 @@ public class DataInitializer implements ApplicationRunner {
         // Danh mục dùng chung
         seedDanhMuc();
 
-        // Nếu chưa có tài khoản nào -> tạo mẫu (dùng khi chạy backend trên DB trống)
-        if (taiKhoanRepository.count() == 0) {
-            seedAccount("admin", "admin123", "Nguyễn Quản Trị", "ADMIN");
-            seedAccount("giaovien", "giangvien123", "Trần Văn Giáo", "GV");
-            seedAccount("nhanvien", "nhanvien123", "Lê Thị Nhân", "NV");
-        }
+        // Tài khoản mẫu đã nằm trong data.sql (nguồn seed duy nhất).
+        // DataInitializer KHÔNG seed tài khoản để tránh trùng lặp với data.sql.
 
         // Di chuyển mật khẩu plaintext (từ file SQL cũ) sang BCrypt một lần
         migratePlaintextPasswords();
@@ -112,20 +108,6 @@ public class DataInitializer implements ApplicationRunner {
             dm.setNhom(row[0]); dm.setMa(row[1]); dm.setTen(row[2]); dm.setThuTu(order++);
             danhMucRepository.save(dm);
         }
-    }
-
-    private void seedAccount(String tendangnhap, String matkhau, String hoten, String maVaiTro) {
-        if (taiKhoanRepository.findByTendangnhap(tendangnhap).isPresent()) {
-            return;
-        }
-        VaiTro vaiTro = vaiTroRepository.findByMaVaiTro(maVaiTro).orElseThrow();
-        TaiKhoan tk = new TaiKhoan();
-        tk.setTendangnhap(tendangnhap);
-        tk.setMatkhau(passwordEncoder.encode(matkhau));
-        tk.setHoten(hoten);
-        tk.setVaitro(vaiTro);
-        tk.setTrangthai("ACTIVE");
-        taiKhoanRepository.save(tk);
     }
 
     private void migratePlaintextPasswords() {

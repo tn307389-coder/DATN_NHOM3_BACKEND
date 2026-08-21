@@ -142,7 +142,9 @@ public class PaymentController {
     // ADMIN/NV được toàn quyền; Học viên chỉ được truy cập giao dịch của chính mình
     private void checkQuyenTruyCap(ThanhToan tt) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth == null || auth.getAuthorities() == null) return;
+        if (auth == null || auth.getAuthorities() == null) {
+            throw new ResourceNotFoundException("Chưa xác thực");
+        }
         boolean quanTriVien = auth.getAuthorities().stream()
                 .anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN") || a.getAuthority().equals("ROLE_NV"));
         if (quanTriVien) return;
